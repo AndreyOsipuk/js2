@@ -1,0 +1,88 @@
+.navigation {
+    & > ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 50px;
+        flex-wrap: wrap;
+
+        & > li {
+            position: relative;
+        }
+
+        .hideMenue:hover .megaMenue {
+            display: flex;
+        }
+
+        .megaMenue {
+            position: absolute;
+            left: -60px;
+            top: 44px;
+            height: 316px;
+            width: 846px;
+            background-color: #fff;
+            z-index: 5;
+            display: none;
+            justify-content: space-around;
+
+            .menu {
+                width: 235px;
+
+                .firstMenu {
+                    color: #232323;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 32px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.35px;
+
+                    & > li {
+                        border-bottom: 1px solid #e8e8e8;
+
+                        &:hover {
+                            color: #f16d7f;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .secondMenu {
+                        color: #646464;
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 28px;
+                        letter-spacing: 0.35px;
+                        text-transform: capitalize;
+
+                        & > li {
+                            margin: 3px 0;
+
+                            &:hover {
+                                color: #f16d7f;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+
+                #menuImg {
+                    margin-top: 50px;
+                }
+            }
+        }
+    }
+
+    .navLink {
+        display: block;
+        padding: 15px;
+        color: #222222;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        &:hover {
+            color: #f16d7f;
+            border-bottom: 3px solid #ef5b70;
+            padding-bottom: 12px;
+        }
+    }
+}
