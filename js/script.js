@@ -16,7 +16,6 @@ for (var i = 0; i < feturedImg.length; i++) {
 }
 //слайдер
 $('.tabs-body')[0].addEventListener('click', fTabs);
-//document.querySelector('.tabs-body'));
 function fTabs(event) {
     if (event.target.className == 'textBut tab-h') {
         var dataTab = event.target.getAttribute('data-tab');
