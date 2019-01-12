@@ -1,3 +1,10 @@
+function include(url) {
+        var script = document.createElement('script');
+        script.src = url;
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+include('js/browse.js');
+include('js/megaMenue.js');
 //Анимация списка
 let spisok = $('.firstNav > li');
 for (let i = 0; i < spisok.length; i++) {
@@ -14,14 +21,7 @@ for (let i = 0; i < spisok.length; i++) {
         }
     })
 }
-// browse стрелка при hover
-$('.browse').hover(
-    function () {
-        $('.browse').find('i').attr("class", "fas fa-caret-up")
-    },
-    function () {
-        $('.browse').find('i').attr("class", "fas fa-caret-down")
-    });
+
 //кнопки типа тканей
 let typeTrend = $('.trendingNow div p');
 for (let i = 0; i < typeTrend.length; i++) {

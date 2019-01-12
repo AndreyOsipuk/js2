@@ -160,7 +160,7 @@
                 .size,
                 .price {
                     width: 279px;
-                    height: 115px;
+                    min-height: 115px;
 
                     h2 {
                         color: #6f6e6e;
@@ -221,7 +221,7 @@
                         display: flex;
                         margin-top: 5px;
 
-                        p {
+                        label {
                             color: #6f6e6e;
                             font-size: 14px;
                             font-weight: 400;
@@ -307,6 +307,40 @@
                         border: 1px solid #ebebeb;
                         background-color: #ffffff;
                         padding: 0 11px;
+                        position: relative;
+                        box-sizing: border-box;
+
+                        .listHide {
+                            display: none;
+                            top: 30px;
+                            left: 0;
+                            position: absolute;
+                            z-index: 6;
+
+                            .listHideInside {
+
+                                width: 86px;
+                                height: 30px;
+                                display: flex;
+                                justify-content: center;
+                                background-color: #ffffff;
+                                align-items: center;
+                                border: 1px solid #ebebeb;
+
+                                //                                padding: 0 11px;
+                                &:hover {
+                                    background-color: #f16d7f;
+                                    cursor: pointer;
+                                }
+                            }
+
+                        }
+
+                        &:hover .listHide {
+                            display: block;
+                        }
+
+
                     }
                 }
 
@@ -338,6 +372,38 @@
                         background-color: #ffffff;
                         width: 63px;
                         padding: 0 11px;
+                        position: relative;
+                        box-sizing: border-box;
+
+                        .listHide {
+                            display: none;
+                            ;
+                            top: 30px;
+                            left: 0;
+                            position: absolute;
+                            z-index: 6;
+
+                            .listHideInside {
+
+                                width: 63px;
+                                height: 30px;
+                                display: flex;
+                                justify-content: center;
+                                background-color: #ffffff;
+                                align-items: center;
+                                border: 1px solid #ebebeb;
+
+                                &:hover {
+                                    background-color: #f16d7f;
+                                    cursor: pointer;
+                                }
+                            }
+
+                        }
+
+                        &:hover .listHide {
+                            display: block;
+                        }
                     }
                 }
             }

@@ -147,9 +147,7 @@ ul {
 .headerLeft .browseBlock .browse:hover {
   background-color: #f16d7f;
   background-image: none;
-}
-.headerLeft .browseBlock .browse:hover .dropDown {
-  display: flex;
+  cursor: pointer;
 }
 .headerLeft .browseBlock .headerSearch {
   border-radius: 0 3px 3px 0;
@@ -320,9 +318,6 @@ ul {
   background-color: #4a4a4a;
   color: #fff;
 }
-.headerRight .headerCart:hover .cartHide {
-  display: flex;
-}
 .headerRight .headerCart:hover img {
   width: 40px;
   height: 35px;
@@ -349,50 +344,62 @@ ul {
 .navigation > ul > li {
   position: relative;
 }
-.navigation > ul .hideMenue:hover .megaMenue {
-  display: flex;
-}
 .navigation > ul .megaMenue {
   position: absolute;
   left: -60px;
   top: 44px;
-  height: 316px;
   width: 846px;
   background-color: #fff;
   z-index: 5;
   display: none;
   justify-content: space-around;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+}
+.navigation > ul .megaMenue:before {
+  content: ' ';
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  position: absolute;
+  top: -7px;
+  left: 94px;
+  transform: rotate(45deg);
+  border-left: 1px solid #e8e8e8;
+  border-top: 1px solid #e8e8e8;
 }
 .navigation > ul .megaMenue .menu {
   width: 235px;
 }
-.navigation > ul .megaMenue .menu .firstMenu {
+.navigation > ul .megaMenue .menu .firstMenu > li {
+  border-bottom: 1px solid #e8e8e8;
+}
+.navigation > ul .megaMenue .menu .firstMenu > li a {
   color: #232323;
   font-size: 14px;
   font-weight: 400;
   line-height: 32px;
   text-transform: uppercase;
   letter-spacing: 0.35px;
+  display: block;
 }
-.navigation > ul .megaMenue .menu .firstMenu > li {
-  border-bottom: 1px solid #e8e8e8;
-}
-.navigation > ul .megaMenue .menu .firstMenu > li:hover {
+.navigation > ul .megaMenue .menu .firstMenu > li a:hover {
   color: #f16d7f;
   cursor: pointer;
 }
-.navigation > ul .megaMenue .menu .firstMenu .secondMenu {
+.navigation > ul .megaMenue .menu .firstMenu .secondMenu > li {
+  margin: 3px 0;
+}
+.navigation > ul .megaMenue .menu .firstMenu .secondMenu > li a {
   color: #646464;
   font-size: 14px;
   font-weight: 400;
   line-height: 28px;
   letter-spacing: 0.35px;
   text-transform: capitalize;
+  display: block;
 }
-.navigation > ul .megaMenue .menu .firstMenu .secondMenu > li {
-  margin: 3px 0;
-}
-.navigation > ul .megaMenue .menu .firstMenu .secondMenu > li:hover {
+.navigation > ul .megaMenue .menu .firstMenu .secondMenu > li a:hover {
   color: #f16d7f;
   cursor: pointer;
 }
@@ -566,6 +573,10 @@ ul {
   align-items: center;
   margin-top: 35px;
 }
+.checkoutWrap .checkoutHide .checkoutHideWrap .hideLeft .continue:hover {
+  background-color: #f16d7f;
+  color: #fff;
+}
 .checkoutWrap .checkoutHide .checkoutHideWrap .hideRight {
   flex: 1;
 }
@@ -596,13 +607,21 @@ ul {
   font-weight: 700;
   text-transform: uppercase;
   border: 1px solid #eaeaea;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.checkoutWrap .checkoutHide .checkoutHideWrap .hideRight .loginWrap .logIn:hover {
+  background-color: #f16d7f;
+  color: #fff;
+}
 .checkoutWrap .checkoutHide .checkoutHideWrap .hideRight .loginWrap .forgot {
   border: none;
   text-transform: capitalize;
+}
+.checkoutWrap .checkoutHide .checkoutHideWrap .hideRight .loginWrap .forgot:hover {
+  color: #f16d7f;
 }
 .subscribeWrap {
   height: 438px;
@@ -786,6 +805,9 @@ ul {
   align-items: center;
   margin-top: 30px;
 }
+.subscribeWrap .subscribeRight .rightButton .divBut:hover {
+  background-color: #d6d6d6;
+}
 .footer .container {
   justify-content: space-around;
   justify-content: center;
@@ -917,15 +939,19 @@ ul {
 .footer .footerSocial .container .footerSocialRight .signSocial {
   height: 32px;
   width: 32px;
+  margin: 0 4px;
+  background-color: #ffffff;
+}
+.footer .footerSocial .container .footerSocialRight .signSocial a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 4px;
-  background-color: #ffffff;
   color: #b2b2b2;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.4px;
+  height: 32px;
+  width: 32px;
 }
 .footer .footerSocial .container .footerSocialRight .signSocial:hover {
   background-color: #f16d7f;

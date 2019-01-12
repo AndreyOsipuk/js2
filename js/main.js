@@ -1,3 +1,11 @@
+function include(url) {
+        var script = document.createElement('script');
+        script.src = url;
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+include('js/browse.js');
+include('js/megaMenue.js');
+
 //contentMain2 заполнение картинками
 let CM3images=[];
 for (let i=0;i<=$('.hotGoods img').length-1;i++){

@@ -10,18 +10,18 @@
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-    <script src="js/sahoppingcart.js" defer></script>
+    <script src="js/shoppingcart.js" defer></script>
 </head>
 
 <body>
     <header class="header container">
         <div class="headerLeft">
-            <a href="" class="logo"><img src="img/logo.png" alt="logo"></a>
-            <a href="" class="brand">
+            <a href="#" class="logo"><img src="img/logo.png" alt="logo"></a>
+            <a href="index.html" class="brand">
                 <p>BRAN<span>D</span></p>
             </a>
             <div class="browseBlock">
-                <a href="" class="browse">
+                <div class="browse">
                     <div class="dropDown">
                         <ul class="firstDrop">
                             <li>woman</li>
@@ -54,13 +54,13 @@
                     </div>
                     Browse
                     <i class="fas fa-caret-down"></i>
-                </a>
+                </div>
                 <input class="headerSearch" type="text" placeholder="Search for Item...">
-                <a href="" class="headerLinkSearch"><i class="fas fa-search loupe"></i></a>
+                <a href="#" class="headerLinkSearch"><i class="fas fa-search loupe"></i></a>
             </div>
         </div>
         <div class="headerRight">
-            <a href="" class="headerCart">
+            <div class="headerCart">
                 <div class="cartHide">
                     <div class="cartGoods">
                         <div class="goodsImg" style="background-image: url(img/goodsImg1.jpg)"></div>
@@ -97,16 +97,15 @@
                         </div>
                     </div>
                     <div class="cartTotal">
-                        <p>TOTAL</p>
+                        <p>TOTAL 111</p>
                         <p>$500.00</p>
                     </div>
-                    <div class="checkOut">checkout</div>
-                    <div class="goToCart">go to cart</div>
+                    <a href="checkout.html" class="checkOut">Chekout</a>
+                    <a href="ShoppingCart.html" class="goToCart">go to cart</a>
                 </div>
-                <img src="img/cart.svg" alt="cart">
-            </a>
+                <a href=""><img src="img/cart.svg" alt="cart"></a>
+            </div>
             <a href="" class="myAccout">myAccount</a>
-
         </div>
     </header>
     <nav class="navigation">
@@ -117,52 +116,51 @@
                 <div class="megaMenue">
                     <div class="menu">
                         <ul class="firstMenu">
-                            <li>woman</li>
+                            <li><a href="#">woman</a></li>
                             <ul class="secondMenu">
-                                <li>Dresses</li>
-                                <li>Tops</li>
-                                <li>Sweaters/Knits</li>
-                                <li>Jackets/Coats</li>
-                                <li>Blazers</li>
-                                <li>Denim</li>
-                                <li>Leggings/Pants</li>
-                                <li>Skirts/Shorts</li>
-                                <li>Accessories</li>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
+                                <li><a href="#">Jackets/Coats</a></li>
+                                <li><a href="#">Blazers</a></li>
+                                <li><a href="#">Denim</a></li>
+                                <li><a href="#">Leggings/Pants</a></li>
+                                <li><a href="#">Skirts/Shorts</a></li>
+                                <li><a href="#">Accessories</a></li>
                             </ul>
                         </ul>
                     </div>
                     <div class="menu">
                         <ul class="firstMenu">
-                            <li>woman</li>
+                            <li><a href="#">woman</a></li>
                             <ul class="secondMenu">
-                                <li>Dresses</li>
-                                <li>Tops</li>
-                                <li>Sweaters/Knits</li>
-                                <li>Jackets/Coats</li>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
+                                <li><a href="#">Jackets/Coats</a></li>
                             </ul>
-                            <li>woman</li>
+                            <li><a href="#">woman</a></li>
                             <ul class="secondMenu">
-                                <li>Dresses</li>
-                                <li>Tops</li>
-                                <li>Sweaters/Knits</li>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
                             </ul>
                         </ul>
                     </div>
                     <div class="menu">
                         <ul class="firstMenu">
-                            <li>woman</li>
+                            <li><a href="#">woman</a></li>
                             <ul class="secondMenu">
-                                <li>Dresses</li>
-                                <li>Tops</li>
-                                <li>Sweaters/Knits</li>
-                                <li>Jackets/Coats</li>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
+                                <li><a href="#">Jackets/Coats</a></li>
                             </ul>
                         </ul>
                         <div class="menuImgWrap">
                             <img id="menuImg" src="img/megaMenue.jpg" alt="">
                         </div>
                     </div>
-
                 </div>
                 <a href="" class="navLink">Women</a>
             </li>
@@ -220,9 +218,7 @@
                     $150
                 </div>
                 <div class="quantity">
-                    <div class="quantityBox">
-                        2
-                    </div>
+                    <input class="quantityBox" value="2">
                 </div>
                 <div class="shipping">
                     FREE
@@ -249,9 +245,7 @@
                     $150
                 </div>
                 <div class="quantity">
-                    <div class="quantityBox">
-                        2
-                    </div>
+                   <input class="quantityBox" value="2">
                 </div>
                 <div class="shipping">
                     FREE
@@ -278,9 +272,7 @@
                     $150
                 </div>
                 <div class="quantity">
-                    <div class="quantityBox">
-                        2
-                    </div>
+                   <input class="quantityBox" value="2">
                 </div>
                 <div class="shipping">
                     FREE
@@ -293,8 +285,8 @@
                 </div>
             </div>
             <div class="productButtons">
-                <div class="productButton">cLEAR SHOPPING CART</div>
-                <div class="productButton">cONTINUE sHOPPING</div>
+                <a href="#" class="productButton">cLEAR SHOPPING CART</a>
+                <a href="#" class="productButton">cONTINUE sHOPPING</a>
             </div>
             <div class="productDelivery">
                 <div class="shippingAdress">
@@ -314,14 +306,14 @@
                     </div>
                     <input type="text" placeholder="State">
                     <input type="text" placeholder="Postcode / Zip">
-                    <div class="getQuote">get a quote</div>
+                    <a href="#" class="getQuote">get a quote</a>
                 </div>
 
                 <div class="couponDiscount">
                     <h2>coupon discount</h2>
                     <p>Enter your coupon code if you have one</p>
                     <input type="text" placeholder="State">
-                    <div class="apply">Apply coupon</div>
+                    <a href="#" class="apply">Apply coupon</a>
                 </div>
                 <div class="checkoutWrap">
                     <div class="checkout">
@@ -329,7 +321,7 @@
                             <p>Sub total<span>$900</span></p>
                             <h3>GRAND TOTAL<span>$900</span></h3>
                         </div>
-                        <div class="proceed">proceed to checkout</div>
+                        <a href="#" class="proceed">proceed to checkout</a>
                     </div>
                 </div>
             </div>
@@ -337,52 +329,53 @@
 
         </div>
     </div>
-     <div class="subscribeWrap">
-        <div class="subscribeBackground"></div>
-        <div class="subscribeLeft">
-            <div class="leftImage">
-                <img src="img/main7-1.png" alt="" id="MyImage">
-            </div>
-            <div class="leftText tabs-body">
-                <blockquote>
-                    <div class="tab-b" style="display: block">
-                        <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
-                            a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”
-                        </p>
-                    </div>
-                    <div class="tab-b">
-                        <p>Я верстал это 12 часов, всю ночь</p>
-                    </div>
-                    <div class="tab-b">
-                        <p>Я устал, а еще нужен адаптив</p>
-                    </div>
-                    <h2 class="tab-h2" style="display: block">Bin Burhan</h2>
-                    <h3 class="tab-h3" style="display: block">Dhaka, Bd</h3>
-                    <h2 class="tab-h2">Осипук Андрей</h2>
-                    <h3 class="tab-h3">Student GB</h3>
-                    <h2 class="tab-h2">Осипук Андрей</h2>
-                    <h3 class="tab-h3">Oil-engeneer</h3>
-                    <div class="textButs tabs-header">
-                        <div class="textBut tab-h" data-tab="0"></div>
-                        <div class="textBut tab-h" data-tab="1"></div>
-                        <div class="textBut tab-h" data-tab="2"></div>
-                    </div>
-                </blockquote>
-            </div>
-        </div>
-        <div class="subscribeRight">
-            <div class="rightCommon">
-                <div class="rightText">
-                    <h2>Subscribe</h2>
-                    <h3>FOR OUR NEWLETTER AND PROMOTION</h3>
+    <div class="subscribeWrap">
+        <div class="container">
+            <div class="subscribeBackground"></div>
+            <div class="subscribeLeft">
+                <div class="leftImage">
+                    <img src="img/main7-1.png" alt="" id="MyImage">
                 </div>
-                <div class="rightButton">
-                    <input type="email" placeholder="Enter Your Email">
-                    <a href="" class="divBut">Subscribe</a>
+                <div class="leftText tabs-body">
+                    <blockquote>
+                        <div class="tab-b" style="display: block">
+                            <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
+                                a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”
+                            </p>
+                        </div>
+                        <div class="tab-b">
+                            <p>Я верстал это 12 часов, всю ночь</p>
+                        </div>
+                        <div class="tab-b">
+                            <p>Я устал, а еще нужен адаптив</p>
+                        </div>
+                        <h2 class="tab-h2" style="display: block">Bin Burhan</h2>
+                        <h3 class="tab-h3" style="display: block">Dhaka, Bd</h3>
+                        <h2 class="tab-h2">Осипук Андрей</h2>
+                        <h3 class="tab-h3">Student GB</h3>
+                        <h2 class="tab-h2">Осипук Андрей</h2>
+                        <h3 class="tab-h3">Oil-engeneer</h3>
+                        <div class="textButs tabs-header">
+                            <div class="textBut tab-h" data-tab="0"></div>
+                            <div class="textBut tab-h" data-tab="1"></div>
+                            <div class="textBut tab-h" data-tab="2"></div>
+                        </div>
+                    </blockquote>
                 </div>
             </div>
+            <div class="subscribeRight">
+                <div class="rightCommon">
+                    <div class="rightText">
+                        <h2>Subscribe</h2>
+                        <h3>FOR OUR NEWLETTER AND PROMOTION</h3>
+                    </div>
+                    <div class="rightButton">
+                        <input type="email" placeholder="Enter Your Email">
+                        <a href="#" class="divBut">Subscribe</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
     <footer class="footer">
         <div class="container">
@@ -402,32 +395,32 @@
             </div>
             <div class="footerList1">
                 <ul>
-                    <li><a href="">COMPANY</a></li>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Shop</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">How It Works</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="#">COMPANY</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
             <div class="footerList2">
                 <ul>
-                    <li><a href="">INFORMATION</a></li>
-                    <li><a href="">Tearms & Condition</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">How to Buy</a></li>
-                    <li><a href="">How to Sell</a></li>
-                    <li><a href="">Promotion</a></li>
+                    <li><a href="#">INFORMATION</a></li>
+                    <li><a href="#">Tearms & Condition</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">How to Buy</a></li>
+                    <li><a href="#">How to Sell</a></li>
+                    <li><a href="#">Promotion</a></li>
                 </ul>
             </div>
             <div class="footerList3">
                 <ul>
-                    <li><a href="">SHOP CATEGORY</a></li>
-                    <li><a href="">Men</a></li>
-                    <li><a href="">Women</a></li>
-                    <li><a href="">Child</a></li>
-                    <li><a href="">Apparel</a></li>
-                    <li><a href="">Brows All</a></li>
+                    <li><a href="#">SHOP CATEGORY</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Child</a></li>
+                    <li><a href="#">Apparel</a></li>
+                    <li><a href="#">Brows All</a></li>
                 </ul>
             </div>
         </div>
@@ -439,25 +432,24 @@
 
                 <div class="footerSocialRight">
                     <div class="signSocial">
-                        <i class="fab fa-facebook-f"></i>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                     </div>
                     <div class="signSocial">
-                        <i class="fab fa-twitter"></i>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                     <div class="signSocial">
-                        <i class="fab fa-invision"></i>
+                        <a href="#"><i class="fab fa-invision"></i></a>
                     </div>
                     <div class="signSocial">
-                        <i class="fab fa-pinterest"></i>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
                     </div>
                     <div class="signSocial">
-                        <i class="fab fa-google-plus-g"></i>
+                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+@import "_variables.less";
+
 .navigation {
     & > ul {
         display: flex;
@@ -11,54 +13,77 @@
         }
 
         .hideMenue:hover .megaMenue {
-            display: flex;
+//            display: flex;
         }
 
         .megaMenue {
             position: absolute;
             left: -60px;
             top: 44px;
-            height: 316px;
+            //            height: 316px;
             width: 846px;
             background-color: #fff;
             z-index: 5;
-            display: none;
+                        display: none;
+//            display: flex;
             justify-content: space-around;
+            border: 1px solid #e8e8e8;
+            border-radius: 5px;
+
+            &:before {
+                content: ' ';
+                width: 12px;
+                height: 12px;
+                background-color: #fff;
+                position: absolute;
+                top: -7px;
+                left: 94px;
+                transform: rotate(45deg);
+                border-left: 1px solid #e8e8e8;
+                border-top: 1px solid #e8e8e8;
+            }
 
             .menu {
                 width: 235px;
 
                 .firstMenu {
-                    color: #232323;
-                    font-size: 14px;
-                    font-weight: 400;
-                    line-height: 32px;
-                    text-transform: uppercase;
-                    letter-spacing: 0.35px;
-
                     & > li {
                         border-bottom: 1px solid #e8e8e8;
 
-                        &:hover {
-                            color: #f16d7f;
-                            cursor: pointer;
-                        }
-                    }
+                        a {
+                            color: #232323;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 32px;
+                            text-transform: uppercase;
+                            letter-spacing: 0.35px;
+                            display: block;
 
-                    .secondMenu {
-                        color: #646464;
-                        font-size: 14px;
-                        font-weight: 400;
-                        line-height: 28px;
-                        letter-spacing: 0.35px;
-                        text-transform: capitalize;
-
-                        & > li {
-                            margin: 3px 0;
 
                             &:hover {
                                 color: #f16d7f;
                                 cursor: pointer;
+                            }
+                        }
+                    }
+
+                    .secondMenu {
+                        & > li {
+                            margin: 3px 0;
+
+                            a {
+                                color: #646464;
+                                font-size: 14px;
+                                font-weight: 400;
+                                line-height: 28px;
+                                letter-spacing: 0.35px;
+                                text-transform: capitalize;
+                                display: block;
+
+                                &:hover {
+                                    color: #f16d7f;
+                                    cursor: pointer;
+                                }
                             }
                         }
                     }

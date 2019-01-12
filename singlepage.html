@@ -9,18 +9,18 @@
     <link rel="stylesheet" href="style/singlepage.css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-    <script src="js/checkout.js" defer></script>
+    <script src="js/singlepage.js" defer></script>
 </head>
 
 <body>
     <header class="header container">
         <div class="headerLeft">
-            <a href="" class="logo"><img src="img/logo.png" alt="logo"></a>
-            <a href="" class="brand">
+            <a href="#" class="logo"><img src="img/logo.png" alt="logo"></a>
+            <a href="index.html" class="brand">
                 <p>BRAN<span>D</span></p>
             </a>
             <div class="browseBlock">
-                <a href="" class="browse">
+                <div class="browse">
                     <div class="dropDown">
                         <ul class="firstDrop">
                             <li>woman</li>
@@ -53,13 +53,13 @@
                     </div>
                     Browse
                     <i class="fas fa-caret-down"></i>
-                </a>
+                </div>
                 <input class="headerSearch" type="text" placeholder="Search for Item...">
-                <a href="" class="headerLinkSearch"><i class="fas fa-search loupe"></i></a>
+                <a href="#" class="headerLinkSearch"><i class="fas fa-search loupe"></i></a>
             </div>
         </div>
         <div class="headerRight">
-            <a href="" class="headerCart">
+            <div class="headerCart">
                 <div class="cartHide">
                     <div class="cartGoods">
                         <div class="goodsImg" style="background-image: url(img/goodsImg1.jpg)"></div>
@@ -96,16 +96,15 @@
                         </div>
                     </div>
                     <div class="cartTotal">
-                        <p>TOTAL</p>
+                        <p>TOTAL 111</p>
                         <p>$500.00</p>
                     </div>
-                    <div class="checkOut">checkout</div>
-                    <div class="goToCart">go to cart</div>
+                    <a href="checkout.html" class="checkOut">Chekout</a>
+                    <a href="ShoppingCart.html" class="goToCart">go to cart</a>
                 </div>
-                <img src="img/cart.svg" alt="cart">
-            </a>
+                <a href=""><img src="img/cart.svg" alt="cart"></a>
+            </div>
             <a href="" class="myAccout">myAccount</a>
-
         </div>
     </header>
     <nav class="navigation">
@@ -116,52 +115,51 @@
                 <div class="megaMenue">
                     <div class="menu">
                         <ul class="firstMenu">
-                            <li>woman</li>
+                            <li><a href="#">woman</a></li>
                             <ul class="secondMenu">
-                                <li>Dresses</li>
-                                <li>Tops</li>
-                                <li>Sweaters/Knits</li>
-                                <li>Jackets/Coats</li>
-                                <li>Blazers</li>
-                                <li>Denim</li>
-                                <li>Leggings/Pants</li>
-                                <li>Skirts/Shorts</li>
-                                <li>Accessories</li>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
+                                <li><a href="#">Jackets/Coats</a></li>
+                                <li><a href="#">Blazers</a></li>
+                                <li><a href="#">Denim</a></li>
+                                <li><a href="#">Leggings/Pants</a></li>
+                                <li><a href="#">Skirts/Shorts</a></li>
+                                <li><a href="#">Accessories</a></li>
                             </ul>
                         </ul>
                     </div>
                     <div class="menu">
                         <ul class="firstMenu">
-                            <li>woman</li>
+                            <li><a href="#">woman</a></li>
                             <ul class="secondMenu">
-                                <li>Dresses</li>
-                                <li>Tops</li>
-                                <li>Sweaters/Knits</li>
-                                <li>Jackets/Coats</li>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
+                                <li><a href="#">Jackets/Coats</a></li>
                             </ul>
-                            <li>woman</li>
+                            <li><a href="#">woman</a></li>
                             <ul class="secondMenu">
-                                <li>Dresses</li>
-                                <li>Tops</li>
-                                <li>Sweaters/Knits</li>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
                             </ul>
                         </ul>
                     </div>
                     <div class="menu">
                         <ul class="firstMenu">
-                            <li>woman</li>
+                            <li><a href="#">woman</a></li>
                             <ul class="secondMenu">
-                                <li>Dresses</li>
-                                <li>Tops</li>
-                                <li>Sweaters/Knits</li>
-                                <li>Jackets/Coats</li>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
+                                <li><a href="#">Jackets/Coats</a></li>
                             </ul>
                         </ul>
                         <div class="menuImgWrap">
                             <img id="menuImg" src="img/megaMenue.jpg" alt="">
                         </div>
                     </div>
-
                 </div>
                 <a href="" class="navLink">Women</a>
             </li>
@@ -205,28 +203,24 @@
                     <div class="choose color">
                         <div class="colorBox">
                             <div class="box"></div>
-                            <p>Red</p>
+                            <input value="Red">
                         </div>
                     </div>
                 </div>
                 <div class="chooseSize">
                     <h2>CHOOSE SIZE</h2>
-                    <div class="choose size">
-                        <p>XXL</p>
-                    </div>
+                    <input class="choose size" value="XXL">
                 </div>
                 <div class="chooseQuantity">
                     <h2>QUANTITY</h2>
-                    <div class="choose quantity">
-                        <p>2</p>
-                    </div>
+                    <input class="choose quantity" value="2">
                 </div>
 
             </div>
-            <div class="addToCart">
+            <a href="#" class="addToCart">
                 <img src="img/cart-red.svg" alt="">
                 <h5>Add to Cart</h5>
-            </div>
+            </a>
 
         </div>
     </div>
@@ -237,52 +231,52 @@
             </header>
             <div class="productLine">
                 <div class="product">
-                    <a href="">
+                    <a href="product.html">
                         <div class="productImg"></div>
                         <div class="productPrice">
                             <h2 class="productName">Mango People T-shirt</h2>
                             <h3 class="productCost">$52.00</h3>
                         </div>
-                        <a href="2134" class="hideLink">
+                        <a href="checkout.html" class="hideLink">
                             <img src="img/basket-white.svg" alt="basketwight">
                             <p>Add to cart</p>
                         </a>
                     </a>
                 </div>
                 <div class="product">
-                    <a href="">
+                    <a href="product.html">
                         <div class="productImg"></div>
                         <div class="productPrice">
                             <h2 class="productName">Mango People T-shirt</h2>
                             <h3 class="productCost">$52.00</h3>
                         </div>
-                        <a href="2134" class="hideLink">
+                        <a href="checkout.html" class="hideLink">
                             <img src="img/basket-white.svg" alt="basketwight">
                             <p>Add to cart</p>
                         </a>
                     </a>
                 </div>
                 <div class="product">
-                    <a href="">
+                    <a href="product.html">
                         <div class="productImg"></div>
                         <div class="productPrice">
                             <h2 class="productName">Mango People T-shirt</h2>
                             <h3 class="productCost">$52.00</h3>
                         </div>
-                        <a href="2134" class="hideLink">
+                        <a href="checkout.html" class="hideLink">
                             <img src="img/basket-white.svg" alt="basketwight">
                             <p>Add to cart</p>
                         </a>
                     </a>
                 </div>
                 <div class="product">
-                    <a href="">
+                    <a href="product.html">
                         <div class="productImg"></div>
                         <div class="productPrice">
                             <h2 class="productName">Mango People T-shirt</h2>
                             <h3 class="productCost">$52.00</h3>
                         </div>
-                        <a href="2134" class="hideLink">
+                        <a href="checkout.html" class="hideLink">
                             <img src="img/basket-white.svg" alt="basketwight">
                             <p>Add to cart</p>
                         </a>
@@ -292,51 +286,52 @@
         </div>
     </div>
     <div class="subscribeWrap">
-        <div class="subscribeBackground"></div>
-        <div class="subscribeLeft">
-            <div class="leftImage">
-                <img src="img/main7-1.png" alt="" id="MyImage">
-            </div>
-            <div class="leftText tabs-body">
-                <blockquote>
-                    <div class="tab-b" style="display: block">
-                        <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
-                            a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”
-                        </p>
-                    </div>
-                    <div class="tab-b">
-                        <p>Я верстал это 12 часов, всю ночь</p>
-                    </div>
-                    <div class="tab-b">
-                        <p>Я устал, а еще нужен адаптив</p>
-                    </div>
-                    <h2 class="tab-h2" style="display: block">Bin Burhan</h2>
-                    <h3 class="tab-h3" style="display: block">Dhaka, Bd</h3>
-                    <h2 class="tab-h2">Осипук Андрей</h2>
-                    <h3 class="tab-h3">Student GB</h3>
-                    <h2 class="tab-h2">Осипук Андрей</h2>
-                    <h3 class="tab-h3">Oil-engeneer</h3>
-                    <div class="textButs tabs-header">
-                        <div class="textBut tab-h" data-tab="0"></div>
-                        <div class="textBut tab-h" data-tab="1"></div>
-                        <div class="textBut tab-h" data-tab="2"></div>
-                    </div>
-                </blockquote>
-            </div>
-        </div>
-        <div class="subscribeRight">
-            <div class="rightCommon">
-                <div class="rightText">
-                    <h2>Subscribe</h2>
-                    <h3>FOR OUR NEWLETTER AND PROMOTION</h3>
+        <div class="container">
+            <div class="subscribeBackground"></div>
+            <div class="subscribeLeft">
+                <div class="leftImage">
+                    <img src="img/main7-1.png" alt="" id="MyImage">
                 </div>
-                <div class="rightButton">
-                    <input type="email" placeholder="Enter Your Email">
-                    <a href="" class="divBut">Subscribe</a>
+                <div class="leftText tabs-body">
+                    <blockquote>
+                        <div class="tab-b" style="display: block">
+                            <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
+                                a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”
+                            </p>
+                        </div>
+                        <div class="tab-b">
+                            <p>Я верстал это 12 часов, всю ночь</p>
+                        </div>
+                        <div class="tab-b">
+                            <p>Я устал, а еще нужен адаптив</p>
+                        </div>
+                        <h2 class="tab-h2" style="display: block">Bin Burhan</h2>
+                        <h3 class="tab-h3" style="display: block">Dhaka, Bd</h3>
+                        <h2 class="tab-h2">Осипук Андрей</h2>
+                        <h3 class="tab-h3">Student GB</h3>
+                        <h2 class="tab-h2">Осипук Андрей</h2>
+                        <h3 class="tab-h3">Oil-engeneer</h3>
+                        <div class="textButs tabs-header">
+                            <div class="textBut tab-h" data-tab="0"></div>
+                            <div class="textBut tab-h" data-tab="1"></div>
+                            <div class="textBut tab-h" data-tab="2"></div>
+                        </div>
+                    </blockquote>
                 </div>
             </div>
+            <div class="subscribeRight">
+                <div class="rightCommon">
+                    <div class="rightText">
+                        <h2>Subscribe</h2>
+                        <h3>FOR OUR NEWLETTER AND PROMOTION</h3>
+                    </div>
+                    <div class="rightButton">
+                        <input type="email" placeholder="Enter Your Email">
+                        <a href="#" class="divBut">Subscribe</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
     <footer class="footer">
         <div class="container">
@@ -356,32 +351,32 @@
             </div>
             <div class="footerList1">
                 <ul>
-                    <li><a href="">COMPANY</a></li>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Shop</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">How It Works</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="#">COMPANY</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
             <div class="footerList2">
                 <ul>
-                    <li><a href="">INFORMATION</a></li>
-                    <li><a href="">Tearms & Condition</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">How to Buy</a></li>
-                    <li><a href="">How to Sell</a></li>
-                    <li><a href="">Promotion</a></li>
+                    <li><a href="#">INFORMATION</a></li>
+                    <li><a href="#">Tearms & Condition</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">How to Buy</a></li>
+                    <li><a href="#">How to Sell</a></li>
+                    <li><a href="#">Promotion</a></li>
                 </ul>
             </div>
             <div class="footerList3">
                 <ul>
-                    <li><a href="">SHOP CATEGORY</a></li>
-                    <li><a href="">Men</a></li>
-                    <li><a href="">Women</a></li>
-                    <li><a href="">Child</a></li>
-                    <li><a href="">Apparel</a></li>
-                    <li><a href="">Brows All</a></li>
+                    <li><a href="#">SHOP CATEGORY</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Child</a></li>
+                    <li><a href="#">Apparel</a></li>
+                    <li><a href="#">Brows All</a></li>
                 </ul>
             </div>
         </div>
@@ -393,25 +388,24 @@
 
                 <div class="footerSocialRight">
                     <div class="signSocial">
-                        <i class="fab fa-facebook-f"></i>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                     </div>
                     <div class="signSocial">
-                        <i class="fab fa-twitter"></i>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                     <div class="signSocial">
-                        <i class="fab fa-invision"></i>
+                        <a href="#"><i class="fab fa-invision"></i></a>
                     </div>
                     <div class="signSocial">
-                        <i class="fab fa-pinterest"></i>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
                     </div>
                     <div class="signSocial">
-                        <i class="fab fa-google-plus-g"></i>
+                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
 </body>
 
 </html>

@@ -147,9 +147,7 @@ ul {
 .headerLeft .browseBlock .browse:hover {
   background-color: #f16d7f;
   background-image: none;
-}
-.headerLeft .browseBlock .browse:hover .dropDown {
-  display: flex;
+  cursor: pointer;
 }
 .headerLeft .browseBlock .headerSearch {
   border-radius: 0 3px 3px 0;
@@ -320,9 +318,6 @@ ul {
   background-color: #4a4a4a;
   color: #fff;
 }
-.headerRight .headerCart:hover .cartHide {
-  display: flex;
-}
 .headerRight .headerCart:hover img {
   width: 40px;
   height: 35px;
@@ -349,50 +344,62 @@ ul {
 .navigation > ul > li {
   position: relative;
 }
-.navigation > ul .hideMenue:hover .megaMenue {
-  display: flex;
-}
 .navigation > ul .megaMenue {
   position: absolute;
   left: -60px;
   top: 44px;
-  height: 316px;
   width: 846px;
   background-color: #fff;
   z-index: 5;
   display: none;
   justify-content: space-around;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+}
+.navigation > ul .megaMenue:before {
+  content: ' ';
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  position: absolute;
+  top: -7px;
+  left: 94px;
+  transform: rotate(45deg);
+  border-left: 1px solid #e8e8e8;
+  border-top: 1px solid #e8e8e8;
 }
 .navigation > ul .megaMenue .menu {
   width: 235px;
 }
-.navigation > ul .megaMenue .menu .firstMenu {
+.navigation > ul .megaMenue .menu .firstMenu > li {
+  border-bottom: 1px solid #e8e8e8;
+}
+.navigation > ul .megaMenue .menu .firstMenu > li a {
   color: #232323;
   font-size: 14px;
   font-weight: 400;
   line-height: 32px;
   text-transform: uppercase;
   letter-spacing: 0.35px;
+  display: block;
 }
-.navigation > ul .megaMenue .menu .firstMenu > li {
-  border-bottom: 1px solid #e8e8e8;
-}
-.navigation > ul .megaMenue .menu .firstMenu > li:hover {
+.navigation > ul .megaMenue .menu .firstMenu > li a:hover {
   color: #f16d7f;
   cursor: pointer;
 }
-.navigation > ul .megaMenue .menu .firstMenu .secondMenu {
+.navigation > ul .megaMenue .menu .firstMenu .secondMenu > li {
+  margin: 3px 0;
+}
+.navigation > ul .megaMenue .menu .firstMenu .secondMenu > li a {
   color: #646464;
   font-size: 14px;
   font-weight: 400;
   line-height: 28px;
   letter-spacing: 0.35px;
   text-transform: capitalize;
+  display: block;
 }
-.navigation > ul .megaMenue .menu .firstMenu .secondMenu > li {
-  margin: 3px 0;
-}
-.navigation > ul .megaMenue .menu .firstMenu .secondMenu > li:hover {
+.navigation > ul .megaMenue .menu .firstMenu .secondMenu > li a:hover {
   color: #f16d7f;
   cursor: pointer;
 }
@@ -586,38 +593,43 @@ ul {
   justify-content: space-between;
 }
 .womanCollection .container .chooseSizeWrap .chooseColor .choose .colorBox {
-  width: 70px;
+  width: 144px;
   display: flex;
   align-items: center;
-  margin-left: 11px;
 }
 .womanCollection .container .chooseSizeWrap .chooseColor .choose .colorBox .box {
   height: 12px;
   width: 12px;
   background-color: #ef5b70;
+  margin-left: 11px;
 }
-.womanCollection .container .chooseSizeWrap .chooseColor .choose .colorBox p {
+.womanCollection .container .chooseSizeWrap .chooseColor .choose .colorBox input {
+  background-color: #fff;
   color: #bcbcbc;
   font-size: 13px;
   font-weight: 400;
   line-height: 24px;
-  margin-left: 11px;
-  width: 30px;
+  padding-left: 11px;
+  width: 120px;
+  border: none;
+  box-sizing: border-box;
 }
-.womanCollection .container .chooseSizeWrap .chooseSize .choose p {
+.womanCollection .container .chooseSizeWrap .chooseSize .choose {
+  background-color: #fff;
   color: #bcbcbc;
   font-size: 13px;
   font-weight: 400;
   line-height: 24px;
   text-transform: uppercase;
-  margin-left: 15px;
+  padding-left: 15px;
 }
-.womanCollection .container .chooseSizeWrap .chooseQuantity .choose p {
+.womanCollection .container .chooseSizeWrap .chooseQuantity .choose {
+  background-color: #fff;
   color: #bcbcbc;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  margin-left: 17px;
+  padding-left: 17px;
 }
 .womanCollection .container .addToCart {
   width: 537px;
@@ -627,6 +639,10 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.womanCollection .container .addToCart:hover {
+  background-color: #656565;
+  color: #fff;
 }
 .womanCollection .container .addToCart img {
   width: 26px;
@@ -906,6 +922,9 @@ ul {
   align-items: center;
   margin-top: 30px;
 }
+.subscribeWrap .subscribeRight .rightButton .divBut:hover {
+  background-color: #d6d6d6;
+}
 .footer .container {
   justify-content: space-around;
   justify-content: center;
@@ -1037,15 +1056,19 @@ ul {
 .footer .footerSocial .container .footerSocialRight .signSocial {
   height: 32px;
   width: 32px;
+  margin: 0 4px;
+  background-color: #ffffff;
+}
+.footer .footerSocial .container .footerSocialRight .signSocial a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 4px;
-  background-color: #ffffff;
   color: #b2b2b2;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.4px;
+  height: 32px;
+  width: 32px;
 }
 .footer .footerSocial .container .footerSocialRight .signSocial:hover {
   background-color: #f16d7f;
