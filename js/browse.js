@@ -13,6 +13,7 @@ $('.browse').hover(
 $('.headerCart').hover(
     function () {
         $('.cartHide').slideDown(500);
+        $('.cartHide').css("display","flex");
     },
     function () {
         $('.cartHide').slideUp(500);

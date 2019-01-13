@@ -97,6 +97,7 @@
                             font-weight: 400;
                             text-transform: uppercase;
                             padding-bottom: 38px;
+                            
                         }
 
                         span {
@@ -147,6 +148,13 @@
                 text-align: center;
                 background-color: #fff;
                 color: #656565;
+                -moz-appearance: textfield;
+
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
 
             }
 
@@ -170,6 +178,7 @@
                 font-weight: 700;
                 text-transform: uppercase;
                 border: 1px solid #eaeaea;
+
                 &:hover {
                     background-color: #ef5b70;
                     color: #fff;
@@ -265,10 +274,11 @@
                     font-size: 11px;
                     font-weight: 700;
                     text-transform: uppercase;
-                         &:hover {
-                    background-color: #ef5b70;
-                    color: #fff;
-                }
+
+                    &:hover {
+                        background-color: #ef5b70;
+                        color: #fff;
+                    }
                 }
 
 
@@ -326,10 +336,11 @@
                     font-size: 11px;
                     font-weight: 700;
                     text-transform: uppercase;
-                         &:hover {
-                    background-color: #ef5b70;
-                    color: #fff;
-                }
+
+                    &:hover {
+                        background-color: #ef5b70;
+                        color: #fff;
+                    }
                 }
 
             }
@@ -363,6 +374,7 @@
                             font-weight: 400;
                             text-transform: uppercase;
                             margin-bottom: 10px;
+
                             span {
                                 margin-left: 20px;
                             }
@@ -393,6 +405,7 @@
                         font-size: 16px;
                         font-weight: 700;
                         text-transform: uppercase;
+
                         &:hover {
                             background-color: #656565;
                             columns: #fff;

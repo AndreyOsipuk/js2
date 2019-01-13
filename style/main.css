@@ -149,9 +149,6 @@ ul {
   background-image: none;
   cursor: pointer;
 }
-.headerLeft .browseBlock .browse:hover .dropDown {
-  display: flex;
-}
 .headerLeft .browseBlock .headerSearch {
   border-radius: 0 3px 3px 0;
   border: 1px solid #e6e6e6;
@@ -321,9 +318,6 @@ ul {
   background-color: #4a4a4a;
   color: #fff;
 }
-.headerRight .headerCart:hover .cartHide {
-  display: flex;
-}
 .headerRight .headerCart:hover img {
   width: 40px;
   height: 35px;
@@ -349,9 +343,6 @@ ul {
 }
 .navigation > ul > li {
   position: relative;
-}
-.navigation > ul .hideMenue:hover .megaMenue {
-  display: flex;
 }
 .navigation > ul .megaMenue {
   position: absolute;
@@ -1128,7 +1119,7 @@ ul {
 }
 .footer .container .footerText {
   width: 440px;
-  height: 349px;
+  min-height: 349px;
 }
 .footer .container .footerText p {
   color: #898989;
@@ -1136,6 +1127,7 @@ ul {
   font-weight: 300;
   letter-spacing: 0.35px;
   margin-top: 30px;
+  line-height: 20px;
 }
 .footer .container .footerList1 {
   height: 349px;

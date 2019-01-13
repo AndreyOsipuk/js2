@@ -599,6 +599,12 @@ ul {
   text-align: center;
   background-color: #fff;
   color: #656565;
+  -moz-appearance: textfield;
+}
+.productSCWrap .container .productSC .quantityBox::-webkit-outer-spin-button,
+.productSCWrap .container .productSC .quantityBox::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 .productSCWrap .container .productButtons {
   height: 138px;
@@ -1040,7 +1046,7 @@ ul {
 }
 .footer .container .footerText {
   width: 440px;
-  height: 349px;
+  min-height: 349px;
 }
 .footer .container .footerText p {
   color: #898989;
@@ -1048,6 +1054,7 @@ ul {
   font-weight: 300;
   letter-spacing: 0.35px;
   margin-top: 30px;
+  line-height: 20px;
 }
 .footer .container .footerList1 {
   height: 349px;
