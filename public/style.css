@@ -1,0 +1,117 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.goods,
+.cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.productCart {
+  margin: 10px;
+  border: 1px solid black;
+}
+
+.productCart_name {
+  font-size: 15px;
+}
+
+.productCart_cost {
+  font-size: 12px;
+}
+
+.product {
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 364px;
+  width: 263px;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.product:hover {
+  -webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16);
+          box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16);
+}
+
+.product:hover .product_img {
+  -webkit-filter: brightness(50%);
+          filter: brightness(50%);
+}
+
+.product:hover .product_hidelink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+
+.product_img {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 263px;
+  height: 280px;
+}
+
+.product_price {
+  width: 263px;
+  height: 84px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.product_name {
+  color: #222222;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-left: 14px;
+}
+
+.product_cost {
+  color: #f16d7f;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-left: 14px;
+}
+
+.product_hidelink {
+  width: 123px;
+  height: 39px;
+  border: 1px solid #fff;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 100px;
+  position: absolute;
+}
+/*# sourceMappingURL=style.css.map */

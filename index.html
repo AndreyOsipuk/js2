@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="form-wrap">
+        <div class="profile"><img src="https://html5book.ru/wp-content/uploads/2016/10/profile-image.png">
+            <h1>Регистрация</h1>
+        </div>
+        <div class="forma">
+            <div>
+                <label for="name">Имя</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label for="phone">Телефон</label>
+                <input type="text" name="phone">
+            </div>
+            <div>
+                <label for="email">E-mail</label>
+                <input type="text" name="email">
+            </div>
+            <div>
+                <label for="text">О вас</label>
+                <textarea name="text"></textarea>
+            </div>
+            <button id="submit">Отправить</button>
+        </div>
+    </div>
+</body>
+<script>
+    const button = document.querySelector('#submit');
+    button.addEventListener('click', function () {
+        const name = document.querySelector('input[name="name"]');
+        const phone = document.querySelector('input[name="phone"]');
+        const email = document.querySelector('input[name="email"]');
+        const arr = [name, phone, email];
+        const regexp = {
+            name: {
+                name: 'name',
+                regexp: /^[a-zA-Zа-яА-Я]{1,20}(\s[a-zA-Zа-яА-Я]{1,20})?$/,
+            },
+            phone: {
+                name: 'phone',
+                regexp: /^\+7\(\d{3}\)\d{3}-\d{4}$/,
+            },
+            email: {
+                name: 'email',
+                regexp: /^[-_.a-zA-Z]{2,20}@mail\.ru$/,
+            },
+        };
+        for (elem of arr) {
+            if (!regexp[elem.name].regexp.test(elem.value)) {
+                elem.style.background = 'red';
+            } else {
+                elem.removeAttribute('style');
+            }
+        }
+    });
+</script>
+
+</html>
