@@ -1,96 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Shop</title>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Lesson 4</title>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-  <header><button class="cart-button">Корзина</button></header>
-  <main>
-    <div class="goods"></div>
-  </main>
-  <script>
-    function sendRequest(url) {
-      return new Promise((resolve) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', url); // настройка запроса
-        xhr.send();
-
-        xhr.onreadystatechange = () => {
-          if(xhr.readyState === XMLHttpRequest.DONE) {
-            resolve(JSON.parse(xhr.responseText));
-          }
-        }
-      });
-    }
-
-    const API_URL = 'http://localhost:3000';
-
-    class Item {
-      constructor(name, price) {
-        this.name = name;
-        this.price = price;
-      }
-
-      render() {
-        return `<div class="item">
-          <h2>${this.name}</h2>
-          <span>${this.price}</span>
-        </div>`
-      }
-    }
-
-    class ItemsList {
-      constructor() {
-        this.items = [];
-      }
-
-      fetchItems(callback) {
-        sendRequest(`${API_URL}/products.json`, (items) => {
-          this.items = items.map(item => new Item(item.name, item.price));
-          callback();
-        });
-      }
-
-      total() {
-        return this.items.reduce((acc, item) => acc + item.price, 0);
-      }
-
-      render() {
-        const itemsHtmls = this.items.map(item => item.render());
-        return itemsHtmls.join('');
-      }
-    }
-
-    const items = new ItemsList();
-    items.fetchItems(() => {
-      document.querySelector('.goods').innerHTML = items.render();
-    });
-
-    const promise = new Promise ((resolve, reject) => {
-      setTimeout(()=> { resolve({name: 'Vasya',});}, 5000);
-    });
-
-    promise.then(
-      (human) => {
-        console.log(human);
-        human.age = 30;
-        return human;
-      },
-      () => {},
-    ).then(
-      (human) => {
-        console.log(human);
-        return human;
-      }
-    );
-     
+    <header>
+        <div class="cart"></div>
+        <h4 class="sumAll">Общая сумма</h4>
+        <button class="cart-button">Корзина</button>
+        <h2>Поиск товара</h2>
+        <input type="text" class="search-text" />
+    </header>
+    <main>
+        <div class="goods"></div>
+    </main>
     
-
-
-  </script>
 </body>
 
 </html>
