@@ -61,17 +61,11 @@ Vue.component('cart', {
   },
   data() {
     return {
-      itemsCart: [],
+
     };
   },
   mounted() {
-    fetch(`${API_URL}/cart`)
-      .then(response => response.json())
-      .then((itemsCart) => {
-        this.itemsCart = itemsCart;
-      });
-    // this.itemsCart = cart;
-    console.log(this.cart);
+
   },
   template: ` 
         <div class="cart">
@@ -85,7 +79,7 @@ Vue.component('item-cart', {
   template: `
     <div class="itemCart">
       <h4>{{ itemCart.name }} ({{ itemCart.quantity }})
-      <button click.prevent="handleDeleteClick">x</button></h4>
+      <button @click.prevent="handleDeleteClick(itemCart)">x</button></h4>
     </div>
   `,
   methods: {
@@ -95,14 +89,30 @@ Vue.component('item-cart', {
   }
 });
 
+Vue.component('search-product', {
+  methods: {
+    handleSearchClick(searchQuery) {
+      this.$emit('search', searchQuery);
+    }
+  },
+  data() {
+    return {
+      searchQuery: '',
+    };
+  },
+  template: `<div>
+              <input type="text" v-model="searchQuery" class="search-text" />
+              <button class="search-button" @click.prevent="handleSearchClick(searchQuery)">Поиск</button>
+            </div>
+            `,
+
+});
+
 const app = new Vue({
   el: '#app',
   data: {
-    searchQuery: '',
     filterValue: '',
     cart: [],
-    firstName: 'Ivan',
-    lastName: 'Petrov',
   },
   mounted() {
     fetch(`${API_URL}/cart`)
@@ -142,8 +152,8 @@ const app = new Vue({
           });
       }
     },
-    handleSearchClick() {
-      this.filterValue = this.searchQuery;
+    handleSearchClick(string) {
+      this.filterValue = string;
     },
     handleBuyClick(item) {
       const cartItem = this.cart.find((entry) => entry.id === item.id);
@@ -162,7 +172,11 @@ const app = new Vue({
           .then((item) => {
             const itemIdx = this.cart.findIndex((entry) => entry.id === item.id);
             Vue.set(this.cart, itemIdx, item);
+          })
+          .catch( (error) => {
+              console.log(error);
           });
+          
       } else {
         // товара в корзине еще нет, нужно добавить
         fetch(`${API_URL}/cart`, {

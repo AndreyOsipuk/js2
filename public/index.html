@@ -8,16 +8,11 @@
 <body>
   <div id="app">
     <header>
-      <input type="text" v-model="searchQuery" class="search-text" />
-      <button class="search-button" @click="handleSearchClick">Поиск</button>
+      <search-product @search="handleSearchClick"></search-product>
       <button class="cart-button">Корзина</button>
     </header>
     <main>
-      <cart @ondel="handleDeleteClick"></cart>
-      <!-- <ul>
-        <li v-for="item in cart">{{ item.name }} ({{ item.quantity }})<button
-            @click="handleDeleteClick(item)">x</button></li>
-      </ul> -->
+      <cart @ondel="handleDeleteClick" :cart="cart"></cart>
       <div>Общая стоимость: {{ total }}</div>
       <hr>
       <products :query="filterValue" @onbuy="handleBuyClick"></products>

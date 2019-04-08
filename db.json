@@ -44,22 +44,10 @@
   ],
   "cart": [
     {
-      "id": 3,
-      "name": "Бампер",
-      "price": 3000,
-      "quantity": 1
-    },
-    {
       "id": 2,
       "name": "Защитное стекло",
       "price": 1000,
-      "quantity": 3
-    },
-    {
-      "id": 1,
-      "name": "iPhone X",
-      "price": 70000,
-      "quantity": 7
+      "quantity": 4
     }
   ]
 }
