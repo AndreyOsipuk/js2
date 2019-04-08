@@ -3,12 +3,16 @@
     {
       "id": 1,
       "phone": "4343543",
-      "name": "Vasya Pupkin"
+      "name": "Vasya Pupkin",
+      "username": "vasya",
+      "password": "123456"
     },
     {
       "id": 3,
       "phone": "4343543",
-      "name": "Vanya Pupkin"
+      "name": "Vanya Pupkin",
+      "username": "vanya",
+      "password": "123456"
     },
     {
       "name": "Ivan Ivanov",
@@ -22,9 +26,40 @@
     }
   ],
   "products": [
-    { "id": 1, "name": "iPhone X", "price": 70000 },
-    { "id": 2, "name": "Защитное стекло", "price": 1000 },
-    { "id": 3, "name": "Бампер", "price": 3000 }
+    {
+      "id": 1,
+      "name": "iPhone X",
+      "price": 70000
+    },
+    {
+      "id": 2,
+      "name": "Защитное стекло",
+      "price": 1000
+    },
+    {
+      "id": 3,
+      "name": "Бампер",
+      "price": 3000
+    }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": 3,
+      "name": "Бампер",
+      "price": 3000,
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "name": "Защитное стекло",
+      "price": 1000,
+      "quantity": 3
+    },
+    {
+      "id": 1,
+      "name": "iPhone X",
+      "price": 70000,
+      "quantity": 7
+    }
+  ]
 }
