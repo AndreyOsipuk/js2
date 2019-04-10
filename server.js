@@ -43,6 +43,19 @@ app.post('/cart', (req, res) => {
 
       res.send(req.body);
     });
+
+    let now = new Date();
+    let content = '';
+    content = 'Добавление товара в корзину ' + req.body.name + '. Время операции: ' + now;
+    fs.appendFile('./db/stats.json', `\n${content}`, (err) => {
+      if (err) {
+        return console.log(err);
+      }
+      console.log("Асинхронная запись файла завершена. Содержимое файла:");
+      let data = fs.readFileSync('./db/stats.json', 'utf8');
+      console.log(data);
+    });
+
   });
 });
 
@@ -53,9 +66,11 @@ app.patch('/cart/:id', (req, res) => {
     }
 
     let cart = JSON.parse(data);
-
+    let now = new Date();
+    let content = '';
     cart = cart.map((item) => {
       if (item.id === +req.params.id) {
+        content = 'Изменение количества ' + item.name + '. Время операции: ' + now;
         return {
           ...item,
           ...req.body
@@ -72,6 +87,16 @@ app.patch('/cart/:id', (req, res) => {
 
       res.send(cart.find((item) => item.id === +req.params.id));
     });
+
+    //запись в файл stats.json
+    fs.appendFile('./db/stats.json', `\n${content}`, (err) => {
+      if (err) {
+        return console.log(err);
+      }
+      console.log("Асинхронная запись файла завершена. Содержимое файла:");
+      let data = fs.readFileSync('./db/stats.json', 'utf8');
+      console.log(data);
+    });
   });
 });
 
@@ -83,8 +108,12 @@ app.delete('/cart/:id', (req, res) => {
 
     let cart = JSON.parse(data);
 
+    let now = new Date();
+    let content = '';
+
     for (item of cart) {
       if (item.id === +req.params.id) {
+        content = 'Удаление товара из корзины ' + item.name + '. Время операции: ' + now;
         cart.splice(cart.indexOf(item), 1);
       }
     }
@@ -94,6 +123,15 @@ app.delete('/cart/:id', (req, res) => {
         return console.log(err);
       }
       res.send(cart);
+    });
+
+    fs.appendFile('./db/stats.json', `\n${content}`, (err) => {
+      if (err) {
+        return console.log(err);
+      }
+      console.log("Асинхронная запись файла завершена. Содержимое файла:");
+      let data = fs.readFileSync('./db/stats.json', 'utf8');
+      console.log(data);
     });
   });
 });
