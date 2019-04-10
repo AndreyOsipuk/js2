@@ -1,0 +1,30 @@
+{
+  "name": "git",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreyOsipuk/js2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreyOsipuk/js2/issues"
+  },
+  "homepage": "https://github.com/AndreyOsipuk/js2#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "moment": "^2.24.0",
+    "node-static": "^0.7.11",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.6"
+  },
+  "description": ""
+}
