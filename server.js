@@ -43,40 +43,46 @@ app.post('/cart', (req, res) => {
 
       res.send(req.body);
     });
-
+  });
+  fs.readFile('./db/stats.json', 'utf-8', (err, data) => {
+    if (err) {
+      return console.log(err);
+    }
+    const log = JSON.parse(data);
     let now = new Date();
-    let content = '';
-    content = 'Добавление товара в корзину ' + req.body.name + '. Время операции: ' + now;
-    fs.appendFile('./db/stats.json', `\n${content}`, (err) => {
+    let newEvent = {
+      "date": now,
+      "action": 'Добавление товара в корзину ' + req.body.name,
+    };
+
+    log.push(newEvent);
+    fs.writeFile('./db/stats.json', JSON.stringify(log), (err) => {
       if (err) {
         return console.log(err);
       }
-      console.log("Асинхронная запись файла завершена. Содержимое файла:");
-      let data = fs.readFileSync('./db/stats.json', 'utf8');
-      console.log(data);
+      console.log("Асинхронная запись файла завершена.");
     });
 
   });
 });
 
 app.patch('/cart/:id', (req, res) => {
+
   fs.readFile('./db/cart.json', 'utf-8', (err, data) => {
     if (err) {
       return console.log(err);
     }
 
     let cart = JSON.parse(data);
-    let now = new Date();
     let content = '';
     cart = cart.map((item) => {
       if (item.id === +req.params.id) {
-        content = 'Изменение количества ' + item.name + '. Время операции: ' + now;
+        content = item.name;
         return {
           ...item,
           ...req.body
         };
       }
-
       return item;
     });
 
@@ -88,14 +94,25 @@ app.patch('/cart/:id', (req, res) => {
       res.send(cart.find((item) => item.id === +req.params.id));
     });
 
-    //запись в файл stats.json
-    fs.appendFile('./db/stats.json', `\n${content}`, (err) => {
+    fs.readFile('./db/stats.json', 'utf-8', (err, data) => {
       if (err) {
         return console.log(err);
       }
-      console.log("Асинхронная запись файла завершена. Содержимое файла:");
-      let data = fs.readFileSync('./db/stats.json', 'utf8');
-      console.log(data);
+      const log = JSON.parse(data);
+      let now = new Date();
+      let newEvent = {
+        "date": now,
+        "action": 'Изменение количества ' + content,
+      }
+
+      log.push(newEvent);
+
+      fs.writeFile('./db/stats.json', JSON.stringify(log), (err) => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log("Асинхронная запись файла завершена.");
+      });
     });
   });
 });
@@ -109,11 +126,11 @@ app.delete('/cart/:id', (req, res) => {
     let cart = JSON.parse(data);
 
     let now = new Date();
-    let content = '';
+    // let content = '';
 
     for (item of cart) {
       if (item.id === +req.params.id) {
-        content = 'Удаление товара из корзины ' + item.name + '. Время операции: ' + now;
+        content = item.name;
         cart.splice(cart.indexOf(item), 1);
       }
     }
@@ -125,16 +142,36 @@ app.delete('/cart/:id', (req, res) => {
       res.send(cart);
     });
 
-    fs.appendFile('./db/stats.json', `\n${content}`, (err) => {
+    // fs.appendFile('./db/stats.json', `\n${content}`, (err) => {
+    //   if (err) {
+    //     return console.log(err);
+    //   }
+    //   console.log("Асинхронная запись файла завершена. Содержимое файла:");
+    //   let data = fs.readFileSync('./db/stats.json', 'utf8');
+    //   console.log(data);
+    fs.readFile('./db/stats.json', 'utf-8', (err, data) => {
       if (err) {
         return console.log(err);
       }
-      console.log("Асинхронная запись файла завершена. Содержимое файла:");
-      let data = fs.readFileSync('./db/stats.json', 'utf8');
-      console.log(data);
+      const log = JSON.parse(data);
+      let now = new Date();
+      let newEvent = {
+        "date": now,
+        "action": 'Удаление товара ' + content,
+      }
+
+      log.push(newEvent);
+
+      fs.writeFile('./db/stats.json', JSON.stringify(log), (err) => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log("Асинхронная запись файла завершена.");
+      });
     });
   });
 });
+
 
 
 app.listen(3000, () => {
