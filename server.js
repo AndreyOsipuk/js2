@@ -142,13 +142,6 @@ app.delete('/cart/:id', (req, res) => {
       res.send(cart);
     });
 
-    // fs.appendFile('./db/stats.json', `\n${content}`, (err) => {
-    //   if (err) {
-    //     return console.log(err);
-    //   }
-    //   console.log("Асинхронная запись файла завершена. Содержимое файла:");
-    //   let data = fs.readFileSync('./db/stats.json', 'utf8');
-    //   console.log(data);
     fs.readFile('./db/stats.json', 'utf-8', (err, data) => {
       if (err) {
         return console.log(err);
