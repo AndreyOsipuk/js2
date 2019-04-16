@@ -1,42 +1,61 @@
 {
+  "users": [
+  ],
   "products": [
     {
       "id": 1,
-      "name": "Майка топ",
-      "price": 1000
+      "name": "Товар 1",
+      "price": 1000,
+      "src": "img/feturedItems1.jpg"
     },
     {
       "id": 2,
-      "name": "Майка new",
-      "price": 2000
+      "name": "Товар 2",
+      "price": 2000,
+      "src": "img/feturedItems2.jpg"
     },
     {
       "id": 3,
-      "name": "Штаны",
+      "name": "Товар 3",
       "price": 3000
     },
     {
       "id": 4,
-      "name": "Джинсы",
+      "name": "Товар 4",
       "price": 4000
     },
     {
       "id": 5,
-      "name": "Куртка",
+      "name": "Товар 5",
       "price": 5000
     },
     {
       "id": 6,
-      "name": "Свитер",
+      "name": "Товар 6",
       "price": 6000
+    },
+    {
+      "id": 7,
+      "name": "Товар 7",
+      "price": 7000
+    },
+    {
+      "id": 8,
+      "name": "Товар 8",
+      "price": 8000
+    },
+    {
+      "id": 9,
+      "name": "Товар 9",
+      "price": 9000
     }
   ],
   "cart": [
     {
       "id": 2,
-      "name": "Майка new",
+      "name": "Товар 2",
       "price": 2000,
-      "quantity": 2
+      "src": "img/feturedItems2.jpg"
     }
   ]
 }

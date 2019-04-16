@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>checkout</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="style/checkout.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="js/checkout.js" defer></script>
+</head>
+
+<body>
+   <header class="header container">
+        <div class="headerLeft">
+            <a href="#" class="logo"><img src="img/logo.png" alt="logo"></a>
+            <a href="index.html" class="brand">
+                <p>BRAN<span>D</span></p>
+            </a>
+            <div class="browseBlock">
+                <div class="browse">
+                    <div class="dropDown">
+                        <ul class="firstDrop">
+                            <li>woman</li>
+                            <ul class="secondDrop">
+                                <li>Dresses</li>
+                                <li>Tops</li>
+                                <li>Sweaters/Knits</li>
+                                <li>Jackets/Coats</li>
+                                <li>Blazers</li>
+                                <li>Denim</li>
+                                <li>Leggings/Pants</li>
+                                <li>Skirts/Shorts</li>
+                                <li>Accessories</li>
+                                <li>Bags/Purses</li>
+                                <li>Swimwear/Underwear</li>
+                                <li>Nightwear</li>
+                                <li>Shoes</li>
+                                <li>Beauty</li>
+                            </ul>
+                            <li>man</li>
+                            <ul class="secondDrop">
+                                <li>Tees/Tank tops</li>
+                                <li>Shirts/Polos</li>
+                                <li>Sweaters</li>
+                                <li>Sweatshirts/Hoodies</li>
+                                <li>Blazers</li>
+                                <li>Jackets/vests</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    Browse
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <input class="headerSearch" type="text" placeholder="Search for Item...">
+                <a href="#" class="headerLinkSearch"><i class="fas fa-search loupe"></i></a>
+            </div>
+        </div>
+        <div class="headerRight">
+            <div class="headerCart">
+                <div class="cartHide">
+                    <div class="cartGoods">
+                        <div class="goodsImg" style="background-image: url(img/goodsImg1.jpg)"></div>
+                        <div class="goodsName">
+                            <h2>Rebox Zane</h2>
+                            <h3>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </h3>
+                            <p>1 x $250</p>
+                        </div>
+                        <div class="goodsClose">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                    </div>
+                    <div class="cartGoods">
+                        <div class="goodsImg" style="background-image: url(img/goodsImg2.jpg)"></div>
+                        <div class="goodsName">
+                            <h2>Rebox Zane</h2>
+                            <h3>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </h3>
+                            <p>1 x $250</p>
+                        </div>
+                        <div class="goodsClose">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                    </div>
+                    <div class="cartTotal">
+                        <p>TOTAL</p>
+                        <p>$500.00</p>
+                    </div>
+                    <a href="checkout.html" class="checkOut">Chekout</a>
+                    <a href="ShoppingCart.html" class="goToCart">go to cart</a>
+                </div>
+                <a href="ShoppingCart.html"><img src="img/cart.svg" alt="cart"></a>
+            </div>
+            <a href="" class="myAccout">myAccount</a>
+        </div>
+    </header>
+    <nav class="navigation">
+        <ul>
+            <li class="navWrap"><a href="" class="navLink">Home</a></li>
+            <li class="navWrap"><a href="" class="navLink">Man</a></li>
+            <li class="navWrap hideMenue">
+                <div class="megaMenue">
+                    <div class="menu">
+                        <ul class="firstMenu">
+                            <li><a href="#">woman</a></li>
+                            <ul class="secondMenu">
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
+                                <li><a href="#">Jackets/Coats</a></li>
+                                <li><a href="#">Blazers</a></li>
+                                <li><a href="#">Denim</a></li>
+                                <li><a href="#">Leggings/Pants</a></li>
+                                <li><a href="#">Skirts/Shorts</a></li>
+                                <li><a href="#">Accessories</a></li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div class="menu">
+                        <ul class="firstMenu">
+                            <li><a href="#">woman</a></li>
+                            <ul class="secondMenu">
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
+                                <li><a href="#">Jackets/Coats</a></li>
+                            </ul>
+                            <li><a href="#">woman</a></li>
+                            <ul class="secondMenu">
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div class="menu">
+                        <ul class="firstMenu">
+                            <li><a href="#">woman</a></li>
+                            <ul class="secondMenu">
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
+                                <li><a href="#">Jackets/Coats</a></li>
+                            </ul>
+                        </ul>
+                        <div class="menuImgWrap">
+                            <img id="menuImg" src="img/megaMenue.jpg" alt="">
+                        </div>
+                    </div>
+
+                </div>
+                <a href="" class="navLink">Women</a>
+            </li>
+            <li class="navWrap"><a href="" class="navLink">Kids</a></li>
+            <li class="navWrap"><a href="" class="navLink">Accoseriese</a></li>
+            <li class="navWrap"><a href="" class="navLink">Featured</a></li>
+            <li class="navWrap"><a href="" class="navLink">Hot Deals </a></li>
+        </ul>
+    </nav>
+    <div class="newArrivals">
+        <div class="container">
+            <p>New Arrivals</p>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Men</a></li>
+                <li><a href="checkout.html">New Arrivals</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="container">
+            <div class="checkoutWrap">
+                <div class="checkout activeCheck">
+                    01. Shipping Adress
+                </div>
+                <div class="checkoutHide" style="display: block">
+                    <div class="checkoutHideWrap">
+                        <div class="hideLeft">
+                            <h3>Check as a guest or register</h3>
+                            <p>Register with us for future convenience</p>
+                            <input type="radio" name="checkout" id="checkout1" checked>
+                            <label for="checkout1">checkout as guest</label>
+                            <br>
+                            <input type="radio" name="checkout" id="checkout2">
+                            <label for="checkout2">register</label>
+                            <h3>register and save time!</h3>
+                            <p>Register with us for future convenience</p>
+                            <p>Fast and easy checkout</p>
+                            <p>Easy access to your order history and status</p>
+                            <a href="#" class="continue">Continue</a>
+                        </div>
+                        <div class="hideRight">
+                            <h3>Already registed?</h3>
+                            <p>Please log in below</p>
+                            <h3>EMAIL ADDRESS<span>*</span></h3>
+                            <input type="email">
+                            <h3>PASSWORD<span>*</span></h3>
+                            <input type="password">
+                            <br>
+                            <span>* Required Fileds</span>
+                            <div class="loginWrap">
+                                <a href="#" class="logIn">Log in</a>
+                                <a href="#" class="forgot">Forgot Password ?</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="checkout">
+                    02. BILLING INFORMATION
+                </div>
+                <div class="checkoutHide">
+                    <div class="checkoutHideWrap">
+                        <div class="hideLeft">
+                            <h3>Check as a guest or register</h3>
+                            <p>Register with us for future convenience</p>
+                            <input type="radio" name="checkout" checked>
+                            <label for="">checkout as guest</label>
+                            <br>
+                            <input type="radio" name="checkout">
+                            <label for="">register</label>
+                            <h3>register and save time!</h3>
+                            <p>Register with us for future convenience</p>
+                            <p>Fast and easy checkout</p>
+                            <p>Easy access to your order history and status</p>
+                            <div class="continue">Continue</div>
+                        </div>
+                        <div class="hideRight">
+                            <h3>Already registed?</h3>
+                            <p>Please log in below</p>
+                            <h3>EMAIL ADDRESS<span>*</span></h3>
+                            <input type="email">
+                            <h3>PASSWORD<span>*</span></h3>
+                            <input type="password">
+                            <br>
+                            <span>* Required Fileds</span>
+                            <div class="loginWrap">
+                                <div class="logIn">Log in</div>
+                                <div class="forgot">Forgot Password ?</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="checkout">
+                    03. SHIPPING INFORMATION
+                </div>
+                <div class="checkoutHide">
+                    <div class="checkoutHideWrap">
+                        <div class="hideLeft">
+                            <h3>Check as a guest or register</h3>
+                            <p>Register with us for future convenience</p>
+                            <input type="radio" name="checkout" checked>
+                            <label for="">checkout as guest</label>
+                            <br>
+                            <input type="radio" name="checkout">
+                            <label for="">register</label>
+                            <h3>register and save time!</h3>
+                            <p>Register with us for future convenience</p>
+                            <p>Fast and easy checkout</p>
+                            <p>Easy access to your order history and status</p>
+                            <div class="continue">Continue</div>
+                        </div>
+                        <div class="hideRight">
+                            <h3>Already registed?</h3>
+                            <p>Please log in below</p>
+                            <h3>EMAIL ADDRESS<span>*</span></h3>
+                            <input type="email">
+                            <h3>PASSWORD<span>*</span></h3>
+                            <input type="password">
+                            <br>
+                            <span>* Required Fileds</span>
+                            <div class="loginWrap">
+                                <div class="logIn">Log in</div>
+                                <div class="forgot">Forgot Password ?</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="checkout">
+                    04. SHIPPING METHOD
+                </div>
+                <div class="checkout">
+                    05. PAYMENT METHOD
+                </div>
+                <div class="checkout">
+                    06. ORDER REVIEW
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="subscribeWrap">
+        <div class="container">
+            <div class="subscribeBackground"></div>
+            <div class="subscribeLeft">
+                <div class="leftImage">
+                    <img src="img/main7-1.png" alt="" id="MyImage">
+                </div>
+                <div class="leftText tabs-body">
+                    <blockquote>
+                        <div class="tab-b" style="display: block">
+                            <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
+                                a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”
+                            </p>
+                        </div>
+                        <div class="tab-b">
+                            <p>Я верстал это 12 часов, всю ночь</p>
+                        </div>
+                        <div class="tab-b">
+                            <p>Я устал, а еще нужен адаптив</p>
+                        </div>
+                        <h2 class="tab-h2" style="display: block">Bin Burhan</h2>
+                        <h3 class="tab-h3" style="display: block">Dhaka, Bd</h3>
+                        <h2 class="tab-h2">Осипук Андрей</h2>
+                        <h3 class="tab-h3">Student GB</h3>
+                        <h2 class="tab-h2">Осипук Андрей</h2>
+                        <h3 class="tab-h3">Oil-engeneer</h3>
+                        <div class="textButs tabs-header">
+                            <div class="textBut tab-h" data-tab="0"></div>
+                            <div class="textBut tab-h" data-tab="1"></div>
+                            <div class="textBut tab-h" data-tab="2"></div>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="subscribeRight">
+                <div class="rightCommon">
+                    <div class="rightText">
+                        <h2>Subscribe</h2>
+                        <h3>FOR OUR NEWLETTER AND PROMOTION</h3>
+                    </div>
+                    <div class="rightButton">
+                        <input type="email" placeholder="Enter Your Email">
+                        <a href="#" class="divBut">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footerText">
+                <div class="headerLeft footerlogo">
+                    <img src="img/logo.png" alt="logo" class="logo">
+                    <p>BRAN<span>D</span></p>
+                </div>
+                <p>
+                    Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of processes and cross-unit partnerships.
+                </p>
+                <p>
+                    Efficiently plagiarize 24/365 action items and focused infomediaries.
+                    Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.
+                </p>
+
+            </div>
+            <div class="footerList1">
+                <ul>
+                    <li><a href="#">COMPANY</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footerList2">
+                <ul>
+                    <li><a href="#">INFORMATION</a></li>
+                    <li><a href="#">Tearms & Condition</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">How to Buy</a></li>
+                    <li><a href="#">How to Sell</a></li>
+                    <li><a href="#">Promotion</a></li>
+                </ul>
+            </div>
+            <div class="footerList3">
+                <ul>
+                    <li><a href="#">SHOP CATEGORY</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Child</a></li>
+                    <li><a href="#">Apparel</a></li>
+                    <li><a href="#">Brows All</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footerSocial">
+            <div class="container">
+                <div class="footerSocialLeft">
+                    © 2017 Brand All Rights Reserved.
+                </div>
+
+                <div class="footerSocialRight">
+                    <div class="signSocial">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                    <div class="signSocial">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <div class="signSocial">
+                        <a href="#"><i class="fab fa-invision"></i></a>
+                    </div>
+                    <div class="signSocial">
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    <div class="signSocial">
+                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
