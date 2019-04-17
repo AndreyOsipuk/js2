@@ -1,74 +1,235 @@
-function include(url) {
-        var script = document.createElement('script');
-        script.src = url;
-        document.getElementsByTagName('head')[0].appendChild(script);
+const API_URL = 'http://localhost:3000';
+
+Vue.component('cart', {
+    props: ['cart'],
+    template: `
+  <div class="cartHide">
+      <cart-item v-for="entry in cart" :cart="entry" @delete="handleDeleteClick"></cart-item>
+    <div class="cartTotal">
+      <p>TOTAL</p>
+      <p>\${{total}}</p>
+    </div>
+    <a href="checkout.html" class="checkOut">Chekout</a>
+    <a href="ShoppingCart.html" class="goToCart">go to cart</a>
+  </div>
+  `,
+    computed: {
+        total() {
+            return this.cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+        }
+    },
+    methods: {
+        handleDeleteClick(item) {
+            this.$emit('delete', item);
+        }
     }
-include('js/browse.js');
-include('js/megaMenue.js');
-//Анимация списка
-let spisok = $('.firstNav > li');
-for (let i = 0; i < spisok.length; i++) {
-    $(spisok[i]).click(function () {
-
-        if ($(spisok[i]).attr("class") == "activeNav") {
-            $('.activeNav + ul').slideUp(500);
-            $(spisok[i]).removeClass("activeNav");
-            $(spisok[i]).find('i').attr("class", "fas fa-caret-down");
-        } else {
-            $(spisok[i]).addClass("activeNav");
-            $('.activeNav + ul').slideDown(500);
-            $(spisok[i]).find('i').attr("class", "fas fa-caret-up");
-        }
-    })
-}
-
-//кнопки типа тканей
-let typeTrend = $('.trendingNow div p');
-for (let i = 0; i < typeTrend.length; i++) {
-    $(typeTrend[i]).click(function () {
-        if ($(typeTrend[i]).attr("class") == "activeTrend") {
-            $(typeTrend[i]).removeClass("activeTrend");
-        } else {
-            $(typeTrend[i]).addClass("activeTrend");
-        }
-    })
-}
-// input с двумя ползунками
-$(function () {
-    $("#slider-range").slider({
-        range: true,
-        min: 0,
-        max: 500,
-        values: [75, 300],
-        slide: function (event, ui) {
-            $("#amount").val("$" + ui.values[0] + "                                                                                 $" + ui.values[1]);
-        }
-    });
-    $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-        "                                                                                 $" + $("#slider-range").slider("values", 1));
 });
-//цитаты слайдер
-$('.tabs-body')[0].addEventListener('click', fTabs);
 
-function fTabs(event) {
-    if (event.target.className == 'textBut tab-h') {
-        var dataTab = event.target.getAttribute('data-tab');
-        var tabBody = $('.tab-b');
-        var tabH2 = $('.tab-h2');
-        var tabH3 = $('.tab-h3');
-        for (var i = 0; i < tabBody.length; i++) {
-            if (dataTab == i) {
-                var j = i;
-                tabBody[i].style.display = 'block';
-                tabH2[i].style.display = 'block';
-                tabH3[i].style.display = 'block';
-                j++;
-                $('#MyImage').attr('src', 'img/main7-' + j + '.png');
+Vue.component('cart-item', {
+    props: ['cart'],
+    template: `
+      <div class="cartGoods">
+        <div class="goodsImg" :style="backgroundImg"></div>
+        <div class="goodsName">
+            <h2>{{cart.name}}</h2>
+            <h3>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </h3>
+            <p>{{cart.quantity}} x \${{cart.price}}</p>
+        </div>
+        <div class="goodsClose" @click.prevent="handleDeleteClick(cart)">
+            <i class="fas fa-times-circle"></i>
+        </div>
+      </div>
+  `,
+    computed: {
+        backgroundImg() {
+            return {
+                backgroundImage: 'url(' + this.cart.src + ')'
+            }
+        }
+    },
+    // data() {
+    // },
+    methods: {
+        handleDeleteClick(item) {
+            this.$emit('delete', item);
+        }
+    },
+});
+
+//------------------------------------------------------------
+
+Vue.component('product-item', {
+    props: ['item'],
+    template: `
+    <div class="product">
+        <a href="singlepage.html">
+            <div class="productImg" :style="background"></div>
+            <div class="productPrice">
+                <h2 class="productName">{{item.name}}</h2>
+                <h3 class="productCost">\${{item.price}}</h3>
+            </div>
+            <a href="#" class="hideLink" @click.prevent="handleBuyClick(item)">
+                <img src="img/basket-white.svg" alt="basketwight">
+                <p>Add to cart</p>
+            </a>
+        </a>
+    </div>
+  `,
+    data() {
+        return {
+            background: ''
+        };
+    },
+    mounted() {
+        if (this.item.src) {
+            this.background = 'background: url(' + this.item.src + ')'
+
+        } else {
+            this.background = 'background: url(img/noimg.jpg) repeat scroll 50% 50%'
+
+        }
+    },
+    methods: {
+        handleBuyClick(item) {
+            this.$emit('onBuy', item);
+        }
+    }
+});
+
+Vue.component('products', {
+    props: ['size'],
+    methods: {
+        handleBuyClick(item) {
+            this.$emit('onbuy', item);
+        },
+    },
+    data() {
+        return {
+            items: [],
+        };
+    },
+    computed: {
+        filteredItems() {
+          if(this.size.length !== 0) {
+            return this.items.filter((item) => this.size.indexOf(item) !== -1 )
+          } else {
+            return this.items;
+          }
+        }
+    },
+    mounted() {
+        fetch(`${API_URL}/products`)
+            .then(response => response.json())
+            .then((items) => {
+                this.items = items;
+            });
+    },
+    template: `
+       <div class="productWrap"">
+         <product-item v-for="entry in items" :item="entry" @onBuy="handleBuyClick"></product-item>
+       </div>
+  `,
+});
+
+
+
+const app = new Vue({
+    el: '#app',
+    data: {
+        cart: [],
+        size: [],
+    },
+    mounted() {
+        fetch(`${API_URL}/cart`)
+            .then(response => response.json())
+            .then((items) => {
+                this.cart = items;
+            });
+    },
+    methods: {
+        handleDeleteClick(item) {
+            console.log('delete');
+            if (item.quantity > 1) {
+                fetch(`${API_URL}/cart/${item.id}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            quantity: item.quantity - 1
+                        }),
+                    })
+                    .then((response) => response.json())
+                    .then((item) => {
+                        const itemIdx = this.cart.findIndex((entry) => entry.id === item.id);
+                        Vue.set(this.cart, itemIdx, item);
+                    });
             } else {
-                tabBody[i].style.display = 'none';
-                tabH2[i].style.display = 'none';
-                tabH3[i].style.display = 'none';
+                fetch(`${API_URL}/cart/${item.id}`, {
+                        method: 'DELETE',
+                    })
+                    .then(() => {
+                        this.cart = this.cart.filter((cartItem) => cartItem.id !== item.id);
+                    });
+            }
+        },
+        // handleSearchClick(query) {
+        //   this.filterValue = query;
+        // },
+        handleBuyClick(item) {
+            const cartItem = this.cart.find((entry) => entry.id === item.id);
+            if (cartItem) {
+                // товар в корзине уже есть, нужно увеличить количество
+                fetch(`${API_URL}/cart/${item.id}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            quantity: cartItem.quantity + 1
+                        }),
+                    })
+                    .then((response) => response.json())
+                    .then((item) => {
+                        const itemIdx = this.cart.findIndex((entry) => entry.id === item.id);
+                        Vue.set(this.cart, itemIdx, item);
+                    });
+            } else {
+                // товара в корзине еще нет, нужно добавить
+                fetch(`${API_URL}/cart`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            ...item,
+                            quantity: 1
+                        })
+                    })
+                    .then((response) => response.json())
+                    .then((item) => {
+                        this.cart.push(item);
+                    });
+            }
+        },
+        checkSize(e) {
+            let size;
+            if (e.target.tagName === 'INPUT') {
+                size = e.target.nextElementSibling.innerHTML;
+                if (this.size.indexOf(size) === -1) {
+                    this.size.push(size);
+                } else {
+                    this.size = this.size.filter((cartItem) => cartItem !== size);
+                    //еще способ
+                    // this.size.splice(this.size.indexOf(size),1);
+                }
             }
         }
     }
-}
+});

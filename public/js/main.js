@@ -46,13 +46,13 @@ Vue.component('cart-item', {
         </div>
       </div>
   `,
-  data() {
-    return {
-      backgroundImg: {
-        backgroundImage: 'url(' + this.cart.src + ')'
-      }
-    };
+  computed: {
+    backgroundImg() {
+      return { backgroundImage: 'url(' + this.cart.src + ')' }
+    }
   },
+  // data() {
+  // },
   methods: {
     handleDeleteClick(item) {
       this.$emit('delete', item);

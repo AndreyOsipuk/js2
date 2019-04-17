@@ -55,13 +55,5 @@
       "price": 9000
     }
   ],
-  "cart": [
-    {
-      "id": 2,
-      "name": "Товар 2",
-      "price": 2000,
-      "src": "img/feturedItems2.jpg",
-      "quantity": 1
-    }
-  ]
+  "cart": []
 }
