@@ -1,6 +1,5 @@
 {
-  "users": [
-  ],
+  "users": [],
   "products": [
     {
       "id": 1,
@@ -17,32 +16,38 @@
     {
       "id": 3,
       "name": "Товар 3",
-      "price": 3000
+      "price": 3000,
+      "src": "img/feturedItems3.jpg"
     },
     {
       "id": 4,
       "name": "Товар 4",
-      "price": 4000
+      "price": 4000,
+      "src": "img/feturedItems4.jpg"
     },
     {
       "id": 5,
       "name": "Товар 5",
-      "price": 5000
+      "price": 5000,
+      "src": "img/feturedItems5.jpg"
     },
     {
       "id": 6,
       "name": "Товар 6",
-      "price": 6000
+      "price": 6000,
+      "src": "img/feturedItems6.jpg"
     },
     {
       "id": 7,
       "name": "Товар 7",
-      "price": 7000
+      "price": 7000,
+      "src": "img/feturedItems7.jpg"
     },
     {
       "id": 8,
       "name": "Товар 8",
-      "price": 8000
+      "price": 8000,
+      "src": "img/feturedItems8.jpg"
     },
     {
       "id": 9,
@@ -55,7 +60,8 @@
       "id": 2,
       "name": "Товар 2",
       "price": 2000,
-      "src": "img/feturedItems2.jpg"
+      "src": "img/feturedItems2.jpg",
+      "quantity": 1
     }
   ]
 }

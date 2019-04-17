@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <!-- <div id="app"> -->
+    <div id="app">
         <header class="header container">
             <div class="headerLeft">
                 <a href="#" class="logo"><img src="img/logo.png" alt="logo"></a>
@@ -59,48 +59,27 @@
             </div>
             <div class="headerRight">
                 <div class="headerCart">
-                    <div class="cartHide">
-                        <div class="cartGoods">
-                            <div class="goodsImg" style="background-image: url(img/goodsImg1.jpg)"></div>
-                            <div class="goodsName">
-                                <h2>Rebox Zane</h2>
-                                <h3>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </h3>
-                                <p>1 x $250</p>
-                            </div>
-                            <div class="goodsClose">
-                                <i class="fas fa-times-circle"></i>
-                            </div>
+                    
+                    <cart :cart="cart" @delete="handleDeleteClick"></cart>
+<!-- 
+                    <div class="cartGoods">
+                        <div class="goodsImg" style="background-image: url(img/goodsImg1.jpg)"></div>
+                        <div class="goodsName">
+                            <h2>Rebox Zane</h2>
+                            <h3>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </h3>
+                            <p>1 x $250</p>
                         </div>
-                        <div class="cartGoods">
-                            <div class="goodsImg" style="background-image: url(img/goodsImg2.jpg)"></div>
-                            <div class="goodsName">
-                                <h2>Rebox Zane</h2>
-                                <h3>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </h3>
-                                <p>1 x $250</p>
-                            </div>
-                            <div class="goodsClose">
-                                <i class="fas fa-times-circle"></i>
-                            </div>
+                        <div class="goodsClose">
+                            <i class="fas fa-times-circle"></i>
                         </div>
-                        <div class="cartTotal">
-                            <p>TOTAL 111</p>
-                            <p>$500.00</p>
-                        </div>
-                        <a href="checkout.html" class="checkOut">Chekout</a>
-                        <a href="ShoppingCart.html" class="goToCart">go to cart</a>
-                    </div>
+                    </div> -->
+
                     <a href="ShoppingCart.html"><img src="img/cart.svg" alt="cart"></a>
                 </div>
                 <a href="" class="myAccout">myAccount</a>
@@ -204,43 +183,10 @@
                     <h2>Fetured Items</h2>
                     <h3>Shop for items based on what we featured in this week</h3>
                 </div>
-                <div class="contentMain3">
-
-                    <!-- <div id="app">
-                        <header>
-                          <search @search="handleSearchClick"></search>
-                          <button class="cart-button">Корзина</button>
-                        </header>
-                        <main>
-                          <cart :cart="cart" @delete="handleDeleteClick"></cart>
-                          <products :query="filterValue" @onbuy="handleBuyClick"></products>
-                        </main>
-                      </div> -->
-                    <!-- <products :query="filterValue" @onbuy="handleBuyClick"></products> -->
-                    <div id="app">
-
-                        <products></products>
-                    </div>
-                    
-
-                    <!-- <div class="feturedItems">
-                    <a href="product.html" class="feturedItemsLink">
-                        <div class="feturedImg"></div>
-                        <div class="feturedPrice">
-                            <h2 class="feturedName">Mango People T-shirt</h2>
-                            <h3 class="feturedCost">$52.00</h3>
-                        </div>
-                    </a>
-                    <a href="product.html" class="feturedItemsLink2">
-                        <div class="feturedHidden">
-                            <a href="#" class="fetureHiddenBye"><img src="img/basket-white.svg" alt="basketwight">
-                                <p>Add to cart</p>
-                            </a>
-                        </div>
-                    </a>
-                </div> -->
-
-                </div>
+                <!-- VUE_____________________________________________________________________ -->
+                <!-- <div id="app"></div> -->
+                <products @onbuy="handleBuyClick"></products>
+                <!-- </div> -->
             </section>
             <div class="contentMain4">
                 <a href="#" class="browesAll">Browse All Product</a>
@@ -408,7 +354,7 @@
                 </div>
             </div>
         </footer>
-    <!-- </div> -->
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
     <script src="js/main.js"></script>
 </body>

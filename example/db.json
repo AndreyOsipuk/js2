@@ -47,19 +47,7 @@
       "id": 3,
       "name": "Бампер",
       "price": 3000,
-      "quantity": 9
-    },
-    {
-      "id": 1,
-      "name": "iPhone X",
-      "price": 70000,
       "quantity": 2
-    },
-    {
-      "id": 2,
-      "name": "Защитное стекло",
-      "price": 1000,
-      "quantity": 1
     }
   ]
 }
