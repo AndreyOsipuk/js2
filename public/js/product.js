@@ -103,11 +103,11 @@ Vue.component('product-item', {
 });
 
 Vue.component('products', {
-    props: ['size'],
+    props: ['size', 'sort'],
     methods: {
         handleBuyClick(item) {
             this.$emit('onbuy', item);
-        },
+        }
     },
     data() {
         return {
@@ -116,11 +116,40 @@ Vue.component('products', {
     },
     computed: {
         filteredItems() {
-          if(this.size.length !== 0) {
-            return this.items.filter((item) => this.size.indexOf(item) !== -1 )
-          } else {
-            return this.items;
-          }
+            if (this.size.length === 0 && this.sort === '') {
+                return this.items;
+            } else {
+                let product;
+                if (this.size.length !== 0) {
+                    product = (product ? product : this.items).filter((item) => {
+                        return this.size.includes(item.size ? item.size.toLowerCase() : item.size);
+                    });
+                }
+                if (this.sort !== '') {
+                    if (this.sort === 'Name') {
+                        product = (product ? product : this.items).sort(function (a, b) {
+                            if (a.name > b.name) {
+                                return 1;
+                            }
+                            if (a.name < b.name) {
+                                return -1;
+                            }
+                            return 0;
+                        });
+                    } else if (this.sort === 'Cost') {
+                        product = (product ? product : this.items).sort(function (a, b) {
+                            if (a.price > b.price) {
+                                return 1;
+                            }
+                            if (a.price < b.price) {
+                                return -1;
+                            }
+                            return 0;
+                        });
+                    }
+                }
+                return product;
+            }
         }
     },
     mounted() {
@@ -132,7 +161,7 @@ Vue.component('products', {
     },
     template: `
        <div class="productWrap"">
-         <product-item v-for="entry in items" :item="entry" @onBuy="handleBuyClick"></product-item>
+         <product-item v-for="entry in filteredItems" :item="entry" @onBuy="handleBuyClick"></product-item>
        </div>
   `,
 });
@@ -144,6 +173,7 @@ const app = new Vue({
     data: {
         cart: [],
         size: [],
+        sort: '',
     },
     mounted() {
         fetch(`${API_URL}/cart`)
@@ -153,6 +183,7 @@ const app = new Vue({
             });
     },
     methods: {
+
         handleDeleteClick(item) {
             console.log('delete');
             if (item.quantity > 1) {
@@ -179,9 +210,7 @@ const app = new Vue({
                     });
             }
         },
-        // handleSearchClick(query) {
-        //   this.filterValue = query;
-        // },
+
         handleBuyClick(item) {
             const cartItem = this.cart.find((entry) => entry.id === item.id);
             if (cartItem) {
@@ -229,7 +258,15 @@ const app = new Vue({
                     //еще способ
                     // this.size.splice(this.size.indexOf(size),1);
                 }
+                // console.log(this.size);
             }
+        },
+
+        sortBy(e) {
+            if (e.target.tagName === 'OPTION') {
+                this.sort = e.target.value
+            }
+
         }
     }
 });

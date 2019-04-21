@@ -736,6 +736,7 @@ ul {
   padding: 0 11px;
   position: relative;
   box-sizing: border-box;
+  outline: 0;
 }
 .productContent .container .productBLock .sortByProduct .sortByList .list .listHide {
   display: none;
@@ -816,7 +817,7 @@ ul {
 .productContent .container .productBLock .productWrap {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 @media all and (min-width: 768px) and (max-width: 991px) {
   .productContent .container .productBLock .productWrap {

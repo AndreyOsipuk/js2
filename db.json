@@ -5,19 +5,22 @@
       "id": 1,
       "name": "Товар 1",
       "price": 1000,
-      "src": "img/feturedItems1.jpg"
+      "src": "img/feturedItems1.jpg",
+      "size": "XXS"
     },
     {
       "id": 2,
       "name": "Товар 2",
       "price": 2000,
-      "src": "img/feturedItems2.jpg"
+      "src": "img/feturedItems2.jpg",
+      "size": "xxs"
     },
     {
       "id": 3,
-      "name": "Товар 3",
-      "price": 3000,
-      "src": "img/feturedItems3.jpg"
+      "name": "Тест 3",
+      "price": 1500,
+      "src": "img/feturedItems3.jpg",
+      "size": "xs"
     },
     {
       "id": 4,
@@ -55,5 +58,15 @@
       "price": 9000
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": 2,
+      "name": "Товар 2",
+      "price": 2000,
+      "src": "img/feturedItems2.jpg",
+      "size": "xxs",
+      "quantity": 2
+    }
+  ],
+  "singlepage": []
 }

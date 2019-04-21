@@ -251,13 +251,22 @@
                     <div class="sortByProduct">
                         <div class="sortByList">
                             <div class="sortBy">Sort By</div>
-                            <div class="list">Name<i class="fas fa-caret-down"></i>
+                            <!-- <div class="list">
+                                Name
+                                <i class="fas fa-caret-down"></i>
                                 <div class="listHide">
+                                    <div class="listHideInside">Name</div>
                                     <div class="listHideInside">Size</div>
                                     <div class="listHideInside">Cost</div>
                                     <div class="listHideInside">Color</div>
                                 </div>
-                            </div>
+                            </div> -->
+                            <select class="list" @click="sortBy">
+                                <option>Name</option>
+                                <option>Size</option>
+                                <option>Cost</option>
+                                <option>Color</option>
+                            </select>
                         </div>
                         <div class="showList">
                             <div class="show">Show</div>
@@ -270,9 +279,7 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <products @onbuy="handleBuyClick"></products>
+                    <products :size="size" :sort="sort" @onbuy="handleBuyClick"></products>
                     <!-- <div class="productWrap">
                     <div class="product">
                         <a href="singlepage.html">

@@ -65,26 +65,28 @@ Vue.component('cart-item', {
 Vue.component('product-item', {
   props: ['item'],
   template: `
-      <div class="feturedItems">
-      <a href="product.html" class="feturedItemsLink">
+      <div class="feturedItems" @click.prevent="singlepageData(item)">
+      <a href="#" class="feturedItemsLink">
         <div class="feturedImg" :style="background"></div>
         <div class="feturedPrice">
             <h2 class="feturedName">{{item.name}}</h2>
             <h3 class="feturedCost">\${{item.price}}</h3>
         </div>
       </a>
-      <a href="product.html" class="feturedItemsLink2">
+      <a href="#" class="feturedItemsLink2">
         <div class="feturedHidden">
-            <a href="#" class="fetureHiddenBye">
+            <div class="fetureHiddenBye">
               <p @click.prevent="handleBuyClick(item)">
               <img src="img/basket-white.svg" alt="basketwight">
               Add to cart
               </p>
-            </a>
+            </div>
         </div>
       </a>
     </div>
   `,
+ // @click.prevent="singlepageData(item)"
+  // product.html
   data() {
     return {
       background: ''
@@ -105,7 +107,10 @@ Vue.component('product-item', {
   methods: {
     handleBuyClick(item) {
       this.$emit('onBuy', item);
-    }
+    },
+    singlepageData(item) {
+      this.$emit('onBuy', item);
+    },
   }
 });
 
@@ -115,8 +120,10 @@ Vue.component('products', {
     handleBuyClick(item) {
       this.$emit('onbuy', item);
     },
-  },
-  data() {
+    singlepageData(item) {
+      this.$emit('onbuy', item);
+    },
+  }, data() {
     return {
       items: [],
     };
@@ -140,7 +147,7 @@ Vue.component('products', {
   },
   template: `
        <div class="contentMain3">
-         <product-item v-for="entry in items" :item="entry" @onBuy="handleBuyClick"></product-item>
+         <product-item v-for="entry in items" :item="entry" @onBuy="handleBuyClick" @spage="singlepageData"></product-item>
        </div>
   `,
 });
@@ -160,8 +167,10 @@ const app = new Vue({
       });
   },
   methods: {
+    singlepageData() {
+      console.log('ssssssssssss');
+    },
     handleDeleteClick(item) {
-      console.log('delete');
       if (item.quantity > 1) {
         fetch(`${API_URL}/cart/${item.id}`, {
             method: 'PATCH',
@@ -224,6 +233,7 @@ const app = new Vue({
             this.cart.push(item);
           });
       }
-    }
+    },
+
   }
 });

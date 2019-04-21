@@ -49,7 +49,7 @@
 
                 );
 
-                & > li {
+                &>li {
                     min-height: 37px;
                     display: flex;
                     justify-content: space-between;
@@ -81,7 +81,7 @@
                 line-height: 33px;
                 padding-left: 24px;
 
-                & > li {
+                &>li {
                     padding: 1px 0;
 
                     &:last-child {
@@ -309,8 +309,14 @@
                         padding: 0 11px;
                         position: relative;
                         box-sizing: border-box;
+                        // -webkit-appearance: none;
+                        // -moz-appearance: none;
+                        // -ms-appearance: none;
+                        // appearance: none;
+                        // background: url('path/img.png') no-repeat right center;
+                        outline: 0;
 
-                        .listHide {
+                         .listHide {
                             display: none;
                             top: 30px;
                             left: 0;
@@ -411,7 +417,7 @@
             .productWrap {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-between;
+                justify-content: space-around;
 
                 .respondTo(tablets, {
                     justify-content: space-around;
