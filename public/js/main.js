@@ -46,13 +46,25 @@ Vue.component('cart-item', {
         </div>
       </div>
   `,
+  data() {
+    return {
+      src: ''
+    };
+  },
+  mounted() {},
   computed: {
     backgroundImg() {
-      return { backgroundImage: 'url(' + this.cart.src + ')' }
+      if (this.cart.src) {
+        return {
+          backgroundImage: 'url(' + this.cart.src + ')'
+        }
+      } else {
+        return {
+          backgroundImage: 'url(img/noimg.jpg)'
+        }
+      }
     }
   },
-  // data() {
-  // },
   methods: {
     handleDeleteClick(item) {
       this.$emit('delete', item);
@@ -65,18 +77,18 @@ Vue.component('cart-item', {
 Vue.component('product-item', {
   props: ['item'],
   template: `
-      <div class="feturedItems" @click.prevent="singlepageData(item)">
-      <a href="#" class="feturedItemsLink">
+      <div class="feturedItems" >
+      <a :href="href" class="feturedItemsLink">
         <div class="feturedImg" :style="background"></div>
         <div class="feturedPrice">
             <h2 class="feturedName">{{item.name}}</h2>
             <h3 class="feturedCost">\${{item.price}}</h3>
         </div>
       </a>
-      <a href="#" class="feturedItemsLink2">
+      <a :href="href" class="feturedItemsLink2">
         <div class="feturedHidden">
             <div class="fetureHiddenBye">
-              <p @click.prevent="handleBuyClick(item)">
+              <p @click.prevent.stop="handleBuyClick(item)">
               <img src="img/basket-white.svg" alt="basketwight">
               Add to cart
               </p>
@@ -85,30 +97,23 @@ Vue.component('product-item', {
       </a>
     </div>
   `,
- // @click.prevent="singlepageData(item)"
-  // product.html
   data() {
     return {
-      background: ''
-      // background: {
-      //   background: 'url(' + this.item.src + ')'
-      // }
+      background: '',
+      href: ''
     };
   },
   mounted() {
     if (this.item.src) {
       this.background = 'background: url(' + this.item.src + ')'
-      
+
     } else {
       this.background = 'background: url(img/noimg.jpg) repeat scroll 50% 50%'
-      
-    }
+    };
+    this.href = API_URL + '/singlepage.html?id=' + this.item.id
   },
   methods: {
     handleBuyClick(item) {
-      this.$emit('onBuy', item);
-    },
-    singlepageData(item) {
       this.$emit('onBuy', item);
     },
   }
@@ -120,22 +125,14 @@ Vue.component('products', {
     handleBuyClick(item) {
       this.$emit('onbuy', item);
     },
-    singlepageData(item) {
-      this.$emit('onbuy', item);
-    },
-  }, data() {
+  },
+  data() {
     return {
       items: [],
     };
   },
   computed: {
     // filteredItems() {
-    //   if(this.query) {
-    //     const regexp = new RegExp(this.query, 'i');
-    //     return this.items.filter((item) => regexp.test(item.name));
-    //   } else {
-    //     return this.items;
-    //   }
     // }
   },
   mounted() {
@@ -147,7 +144,7 @@ Vue.component('products', {
   },
   template: `
        <div class="contentMain3">
-         <product-item v-for="entry in items" :item="entry" @onBuy="handleBuyClick" @spage="singlepageData"></product-item>
+         <product-item v-for="entry in items" :item="entry" @onBuy="handleBuyClick"></product-item>
        </div>
   `,
 });
@@ -167,9 +164,6 @@ const app = new Vue({
       });
   },
   methods: {
-    singlepageData() {
-      console.log('ssssssssssss');
-    },
     handleDeleteClick(item) {
       if (item.quantity > 1) {
         fetch(`${API_URL}/cart/${item.id}`, {
@@ -195,11 +189,8 @@ const app = new Vue({
           });
       }
     },
-    // handleSearchClick(query) {
-    //   this.filterValue = query;
-    // },
     handleBuyClick(item) {
-      const cartItem = this.cart.find((entry) => entry.id === item.id);
+      const cartItem = this.cart.find((entry) => entry.id_product === item.id);
       if (cartItem) {
         // товар в корзине уже есть, нужно увеличить количество
         fetch(`${API_URL}/cart/${item.id}`, {
@@ -224,7 +215,13 @@ const app = new Vue({
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              ...item,
+              // ...item,
+              id_product: item.id,
+              name: item.name,
+              price: item.price,
+              src: item.src,
+              color: item.color,
+              size: item.size,
               quantity: 1
             })
           })

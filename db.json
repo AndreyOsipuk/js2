@@ -6,14 +6,16 @@
       "name": "Товар 1",
       "price": 1000,
       "src": "img/feturedItems1.jpg",
-      "size": "XXS"
+      "size": "XXS",
+      "color": "Red"
     },
     {
       "id": 2,
       "name": "Товар 2",
       "price": 2000,
       "src": "img/feturedItems2.jpg",
-      "size": "xxs"
+      "size": "xxs",
+      "color": "Red"
     },
     {
       "id": 3,
@@ -60,13 +62,24 @@
   ],
   "cart": [
     {
-      "id": 2,
-      "name": "Товар 2",
-      "price": 2000,
-      "src": "img/feturedItems2.jpg",
-      "size": "xxs",
-      "quantity": 2
+      "id_product": 1,
+      "name": "Товар 1",
+      "price": 1000,
+      "src": "img/feturedItems1.jpg",
+      "quantity": 5,
+      "color": "Red",
+      "size": "XXS",
+      "id": 1
+    },
+    {
+      "id_product": 1,
+      "name": "Товар 1",
+      "price": 1000,
+      "src": "img/feturedItems1.jpg",
+      "quantity": 4,
+      "color": "Red",
+      "size": "XS",
+      "id": 2
     }
-  ],
-  "singlepage": []
+  ]
 }

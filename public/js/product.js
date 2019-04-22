@@ -46,15 +46,19 @@ Vue.component('cart-item', {
         </div>
       </div>
   `,
-    computed: {
-        backgroundImg() {
-            return {
-                backgroundImage: 'url(' + this.cart.src + ')'
-            }
+  computed: {
+    backgroundImg() {
+      if (this.cart.src) {
+        return {
+          backgroundImage: 'url(' + this.cart.src + ')'
         }
-    },
-    // data() {
-    // },
+      } else {
+        return {
+          backgroundImage: 'url(img/noimg.jpg)'
+        }
+      }
+    }
+  },
     methods: {
         handleDeleteClick(item) {
             this.$emit('delete', item);
@@ -68,22 +72,23 @@ Vue.component('product-item', {
     props: ['item'],
     template: `
     <div class="product">
-        <a href="singlepage.html">
+        <a :href="href">
             <div class="productImg" :style="background"></div>
             <div class="productPrice">
                 <h2 class="productName">{{item.name}}</h2>
                 <h3 class="productCost">\${{item.price}}</h3>
             </div>
-            <a href="#" class="hideLink" @click.prevent="handleBuyClick(item)">
+            <div class="hideLink" @click.prevent="handleBuyClick(item)">
                 <img src="img/basket-white.svg" alt="basketwight">
                 <p>Add to cart</p>
-            </a>
+            </div>
         </a>
     </div>
   `,
     data() {
         return {
-            background: ''
+            background: '',
+            href: ''
         };
     },
     mounted() {
@@ -94,6 +99,7 @@ Vue.component('product-item', {
             this.background = 'background: url(img/noimg.jpg) repeat scroll 50% 50%'
 
         }
+        this.href = API_URL + '/singlepage.html?id=' + this.item.id
     },
     methods: {
         handleBuyClick(item) {
