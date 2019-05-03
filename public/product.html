@@ -197,33 +197,33 @@
                         </div>
                         <div class="size">
                             <h2>Size</h2>
-                            <div class="sizeWrap" @click="checkSize">
+                            <div class="sizeWrap">
                                 <div class="sizeElemen">
-                                    <input id="check1" type="checkbox">
+                                    <input id="check1" type="checkbox" value="xxs" v-model="size">
                                     <label for="check1">xxs</label>
                                 </div>
                                 <div class="sizeElemen">
-                                    <input id="check2" type="checkbox">
+                                    <input id="check2" type="checkbox" value="xs" v-model="size">
                                     <label for="check2">xs</label>
                                 </div>
                                 <div class="sizeElemen">
-                                    <input id="check3" type="checkbox">
+                                    <input id="check3" type="checkbox" value="s" v-model="size">
                                     <label for="check3">s</label>
                                 </div>
                                 <div class="sizeElemen">
-                                    <input id="check4" type="checkbox">
+                                    <input id="check4" type="checkbox" value="m" v-model="size">
                                     <label for="check4">m</label>
                                 </div>
                                 <div class="sizeElemen">
-                                    <input id="check5" type="checkbox">
+                                    <input id="check5" type="checkbox" value="l" v-model="size">
                                     <label for="check5">l</label>
                                 </div>
                                 <div class="sizeElemen">
-                                    <input id="check6" type="checkbox">
+                                    <input id="check6" type="checkbox" value="xl" v-model="size">
                                     <label for="check6">xl</label>
                                 </div>
                                 <div class="sizeElemen">
-                                    <input id="check7" type="checkbox">
+                                    <input id="check7" type="checkbox" value="xxl" v-model="size">
                                     <label for="check7">xxl</label>
                                 </div>
 
@@ -261,9 +261,9 @@
                                     <div class="listHideInside">Color</div>
                                 </div>
                             </div> -->
-                            <select class="list" @click="sortBy">
-                                <option>Name</option>
-                                <option>Size</option>
+                            <select class="list" v-model="sort">
+                                <option selected>Name</option>
+                                <option >Size</option>
                                 <option>Cost</option>
                                 <option>Color</option>
                             </select>

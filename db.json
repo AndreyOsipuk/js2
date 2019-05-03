@@ -22,19 +22,24 @@
       "name": "Тест 3",
       "price": 1500,
       "src": "img/feturedItems3.jpg",
-      "size": "xs"
+      "size": "xs",
+      "color": "Red"
     },
     {
       "id": 4,
       "name": "Товар 4",
       "price": 4000,
-      "src": "img/feturedItems4.jpg"
+      "src": "img/feturedItems4.jpg",
+      "size": "xs",
+      "color": "Red"
     },
     {
       "id": 5,
       "name": "Товар 5",
       "price": 5000,
-      "src": "img/feturedItems5.jpg"
+      "src": "img/feturedItems5.jpg",
+      "size": "s",
+      "color": "Red"
     },
     {
       "id": 6,
@@ -62,23 +67,13 @@
   ],
   "cart": [
     {
-      "id_product": 1,
-      "name": "Товар 1",
-      "price": 1000,
-      "src": "img/feturedItems1.jpg",
-      "quantity": 5,
+      "id_product": 2,
+      "name": "Товар 2",
+      "price": 2000,
+      "src": "img/feturedItems2.jpg",
       "color": "Red",
-      "size": "XXS",
-      "id": 1
-    },
-    {
-      "id_product": 1,
-      "name": "Товар 1",
-      "price": 1000,
-      "src": "img/feturedItems1.jpg",
-      "quantity": 4,
-      "color": "Red",
-      "size": "XS",
+      "size": "xxs",
+      "quantity": 1,
       "id": 2
     }
   ]

@@ -1,6 +1,77 @@
 const API_URL = 'http://localhost:3000';
 const id = +window.location.search.split('=')[1];
 
+
+Vue.component('product-item', {
+    props: ['item'],
+    template: `
+    <div class="product">
+        <a :href="href">
+            <div class="productImg" :style="background"></div>
+            <div class="productPrice">
+                <h2 class="productName">{{item.name}}</h2>
+                <h3 class="productCost">\${{item.price}}</h3>
+            </div>
+            <div class="hideLink" @click.prevent="handleBuyClickProduct(item)">
+                <img src="img/basket-white.svg" alt="basketwight">
+                <p>Add to cart</p>
+            </div>
+        </a>
+    </div>
+    `,
+    data() {
+        return {
+            background: '',
+            href: ''
+        };
+    },
+    mounted() {
+        if (this.item.src) {
+            this.background = 'background: url(' + this.item.src + ')'
+
+        } else {
+            this.background = 'background: url(img/noimg.jpg) repeat scroll 50% 50%'
+        };
+        this.href = API_URL + '/singlepage.html?id=' + this.item.id
+    },
+    methods: {
+        handleBuyClickProduct(item) {
+            this.$emit('onBuy', item);
+        },
+    }
+});
+
+Vue.component('products', {
+    props: [],
+    methods: {
+        handleBuyClickProduct(item) {
+            this.$emit('onbuy', item);
+        },
+    },
+    data() {
+        return {
+            items: [],
+        };
+    },
+    computed: {
+        // filteredItems() {
+        // }
+    },
+    mounted() {
+        fetch(`${API_URL}/products`)
+            .then(response => response.json())
+            .then((items) => {
+                this.items = items.splice(0, 4);
+            });
+    },
+    template: `
+         <div class="productLine">
+           <product-item v-for="entry in items" :item="entry" @onBuy="handleBuyClickProduct"></product-item>
+         </div>
+    `,
+});
+
+
 Vue.component('cart', {
     props: ['cart'],
     template: `
@@ -158,7 +229,55 @@ const app = new Vue({
                             src: this.item.src,
                             quantity: quantityValue,
                             color: colorOptionValue,
-                            size: sizeOptionValue
+                            size: sizeOptionValue.toLowerCase()
+                        })
+                    })
+                    .then((response) => response.json())
+                    .then((item) => {
+                        this.cart.push(item);
+                    });
+            }
+        },
+        handleBuyClickProduct(item) {
+            const cartItem = this.cart.find((entry) => {
+                if (entry.id_product === item.id &&
+                    entry.size.toLowerCase() === item.size.toLowerCase() &&
+                    entry.color === item.color) {
+                    return entry;
+                }
+            });
+            if (cartItem) {
+                // товар в корзине уже есть, нужно увеличить количество
+                fetch(`${API_URL}/cart/${cartItem.id}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            quantity: cartItem.quantity + 1
+                        }),
+                    })
+                    .then((response) => response.json())
+                    .then((item) => {
+                        const itemIdx = this.cart.findIndex((entry) => entry.id === item.id);
+                        Vue.set(this.cart, itemIdx, item);
+                    });
+            } else {
+                // товара в корзине еще нет, нужно добавить
+                fetch(`${API_URL}/cart`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            // ...item,
+                            id_product: item.id,
+                            name: item.name,
+                            price: item.price,
+                            src: item.src,
+                            color: item.color,
+                            size: item.size ? item.size.toLowerCase() : 'xxs',
+                            quantity: 1
                         })
                     })
                     .then((response) => response.json())

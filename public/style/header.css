@@ -199,16 +199,20 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(../img/cart.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .headerRight .headerCart .cartHide {
   position: absolute;
   top: 40px;
   left: -14px;
   width: 262px;
-  height: 440px;
+  min-height: 200px;
+  max-height: 440px;
   border-radius: 5px;
   background-color: #ffffff;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   z-index: 3;
@@ -317,12 +321,11 @@ ul {
   background-color: #4a4a4a;
   color: #fff;
 }
-.headerRight .headerCart a:hover .cartHide {
-  display: flex;
+.headerRight .headerCart:hover {
+  background-size: 105%;
 }
-.headerRight .headerCart:hover img {
-  width: 40px;
-  height: 35px;
+.headerRight .headerCart:hover .cartHide {
+  display: flex;
 }
 .headerRight .myAccout {
   background-color: #f16d7f;

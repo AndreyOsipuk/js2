@@ -225,16 +225,20 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        background-image: url(../img/cart.svg);
+        background-repeat: no-repeat;
+        background-position: center;
 
         .cartHide {
             position: absolute;
             top: 40px;
             left: -14px;
             width: 262px;
-            height: 440px;
+            min-height: 200px;
+            max-height: 440px;
             border-radius: 5px;
             background-color: #ffffff;
-            display: flex;
+            display: none;
             flex-direction: column;
             align-items: center;
             z-index: 3;
@@ -253,7 +257,7 @@
                     background-position: center;
                     background-size: cover;
                     background-repeat: no-repeat;
-                    
+
                 }
 
                 .goodsName {
@@ -361,16 +365,11 @@
             }
         }
 
-        a:hover {
-            .cartHide {
-                display: flex;
-            }
-        }
-
         &:hover {
-            img {
-                width: 40px;
-                height: 35px;
+            background-size: 105%;
+
+            & .cartHide {
+                display: flex;
             }
         }
     }

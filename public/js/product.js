@@ -46,19 +46,19 @@ Vue.component('cart-item', {
         </div>
       </div>
   `,
-  computed: {
-    backgroundImg() {
-      if (this.cart.src) {
-        return {
-          backgroundImage: 'url(' + this.cart.src + ')'
+    computed: {
+        backgroundImg() {
+            if (this.cart.src) {
+                return {
+                    backgroundImage: 'url(' + this.cart.src + ')'
+                }
+            } else {
+                return {
+                    backgroundImage: 'url(img/noimg.jpg)'
+                }
+            }
         }
-      } else {
-        return {
-          backgroundImage: 'url(img/noimg.jpg)'
-        }
-      }
-    }
-  },
+    },
     methods: {
         handleDeleteClick(item) {
             this.$emit('delete', item);
@@ -87,18 +87,24 @@ Vue.component('product-item', {
   `,
     data() {
         return {
-            background: '',
+            // background: '',
             href: ''
         };
     },
-    mounted() {
-        if (this.item.src) {
-            this.background = 'background: url(' + this.item.src + ')'
-
-        } else {
-            this.background = 'background: url(img/noimg.jpg) repeat scroll 50% 50%'
-
+    computed: {
+        background() {
+            if (this.item.src) {
+                return {
+                    background: 'url(' + this.item.src + ')'
+                }
+            } else {
+                return {
+                    background: ' url(img/noimg.jpg) repeat scroll 50% 50%'
+                }
+            }
         }
+    },
+    mounted() {
         this.href = API_URL + '/singlepage.html?id=' + this.item.id
     },
     methods: {
@@ -179,7 +185,7 @@ const app = new Vue({
     data: {
         cart: [],
         size: [],
-        sort: '',
+        sort: 'Name',
     },
     mounted() {
         fetch(`${API_URL}/cart`)
@@ -189,9 +195,7 @@ const app = new Vue({
             });
     },
     methods: {
-
         handleDeleteClick(item) {
-            console.log('delete');
             if (item.quantity > 1) {
                 fetch(`${API_URL}/cart/${item.id}`, {
                         method: 'PATCH',
@@ -218,10 +222,16 @@ const app = new Vue({
         },
 
         handleBuyClick(item) {
-            const cartItem = this.cart.find((entry) => entry.id === item.id);
+            const cartItem = this.cart.find((entry) => {
+                if (entry.id_product === item.id &&
+                    entry.size.toLowerCase() === item.size.toLowerCase() &&
+                    entry.color === item.color) {
+                    return entry;
+                }
+            });
             if (cartItem) {
                 // товар в корзине уже есть, нужно увеличить количество
-                fetch(`${API_URL}/cart/${item.id}`, {
+                fetch(`${API_URL}/cart/${cartItem.id}`, {
                         method: 'PATCH',
                         headers: {
                             'Content-Type': 'application/json',
@@ -243,7 +253,12 @@ const app = new Vue({
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({
-                            ...item,
+                            id_product: item.id,
+                            name: item.name,
+                            price: item.price,
+                            src: item.src,
+                            color: item.color,
+                            size: item.size ? item.size.toLowerCase() : 'xxs',
                             quantity: 1
                         })
                     })
@@ -253,26 +268,26 @@ const app = new Vue({
                     });
             }
         },
-        checkSize(e) {
-            let size;
-            if (e.target.tagName === 'INPUT') {
-                size = e.target.nextElementSibling.innerHTML;
-                if (this.size.indexOf(size) === -1) {
-                    this.size.push(size);
-                } else {
-                    this.size = this.size.filter((cartItem) => cartItem !== size);
-                    //еще способ
-                    // this.size.splice(this.size.indexOf(size),1);
-                }
-                // console.log(this.size);
-            }
-        },
+        //Полная фигня, переделал на v-model
+        // checkSize(e) {
+        //     let size;
+        //     if (e.target.tagName === 'INPUT') {
+        //         size = e.target.nextElementSibling.innerHTML;
+        //         if (this.size.indexOf(size) === -1) {
+        //             this.size.push(size);
+        //         } else {
+        //             this.size = this.size.filter((cartItem) => cartItem !== size);
+        //             //еще способ
+        //             // this.size.splice(this.size.indexOf(size),1);
+        //         }
+        //     }
+        // },
+        //Полная фигня, переделал на v-model
+        // sortBy(e) {
+        //     if (e.target.tagName === 'OPTION') {
+        //         this.sort = e.target.value
+        //     }
 
-        sortBy(e) {
-            if (e.target.tagName === 'OPTION') {
-                this.sort = e.target.value
-            }
-
-        }
+        // }
     }
 });

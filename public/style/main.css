@@ -206,7 +206,8 @@ ul {
   top: 40px;
   left: -14px;
   width: 262px;
-  height: 440px;
+  min-height: 200px;
+  max-height: 440px;
   border-radius: 5px;
   background-color: #ffffff;
   display: flex;

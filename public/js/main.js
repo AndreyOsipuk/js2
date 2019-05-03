@@ -190,10 +190,16 @@ const app = new Vue({
       }
     },
     handleBuyClick(item) {
-      const cartItem = this.cart.find((entry) => entry.id_product === item.id);
+      const cartItem = this.cart.find((entry) => {
+        if (entry.id_product === item.id &&
+          entry.size.toLowerCase() === item.size.toLowerCase() &&
+          entry.color === item.color) {
+          return entry;
+        }
+      });
       if (cartItem) {
         // товар в корзине уже есть, нужно увеличить количество
-        fetch(`${API_URL}/cart/${item.id}`, {
+        fetch(`${API_URL}/cart/${cartItem.id}`, {
             method: 'PATCH',
             headers: {
               'Content-Type': 'application/json',
@@ -221,7 +227,7 @@ const app = new Vue({
               price: item.price,
               src: item.src,
               color: item.color,
-              size: item.size,
+              size: item.size ? item.size.toLowerCase() : 'xxs',
               quantity: 1
             })
           })
