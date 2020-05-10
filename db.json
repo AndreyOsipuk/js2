@@ -1,0 +1,80 @@
+{
+  "users": [],
+  "products": [
+    {
+      "id": 1,
+      "name": "Товар 1",
+      "price": 1000,
+      "src": "img/feturedItems1.jpg",
+      "size": "XXS",
+      "color": "Red"
+    },
+    {
+      "id": 2,
+      "name": "Товар 2",
+      "price": 2000,
+      "src": "img/feturedItems2.jpg",
+      "size": "xxs",
+      "color": "Red"
+    },
+    {
+      "id": 3,
+      "name": "Тест 3",
+      "price": 1500,
+      "src": "img/feturedItems3.jpg",
+      "size": "xs",
+      "color": "Red"
+    },
+    {
+      "id": 4,
+      "name": "Товар 4",
+      "price": 4000,
+      "src": "img/feturedItems4.jpg",
+      "size": "xs",
+      "color": "Red"
+    },
+    {
+      "id": 5,
+      "name": "Товар 5",
+      "price": 5000,
+      "src": "img/feturedItems5.jpg",
+      "size": "s",
+      "color": "Red"
+    },
+    {
+      "id": 6,
+      "name": "Товар 6",
+      "price": 6000,
+      "src": "img/feturedItems6.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Товар 7",
+      "price": 7000,
+      "src": "img/feturedItems7.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Товар 8",
+      "price": 8000,
+      "src": "img/feturedItems8.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Товар 9",
+      "price": 9000
+    }
+  ],
+  "cart": [
+    {
+      "id_product": 2,
+      "name": "Товар 2",
+      "price": 2000,
+      "src": "img/feturedItems2.jpg",
+      "color": "Red",
+      "size": "xxs",
+      "quantity": 1,
+      "id": 2
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+* 
+    margin: 0
+    padding: 0
+    font-family: 'Lato', sans-serif
+
+a 
+    text-decoration: none
+
+ul 
+    list-style-type: none
+
+.container 
+    max-width: 1140px
+    display: flex
+    margin: 0 auto
+
+
+//sass
+@mixin respondTo($_media) 
+  @if $_media == phones 
+    @media all and (max-width: 479px) { @content }
+  
+  @else if $_media == wide-phones
+    @media all and (min-width: 480px) and (max-width: 767px) { @content }
+  
+  @else if $_media == tablets
+    @media all and (min-width: 768px) and (max-width: 991px) { @content  }
+  
+  @else if $_media == small-desktops 
+    @media all and (min-width: 992px) and (max-width: 1199px) { @content }
+  
+  @else if $_media == lg-desktops
+    @media all and (min-width: 1200px) and (max-width: 1440px) { @content }
+  
+  @else if $_media == xlg-desktops 
+    @media all and (min-width: 1441px) and (max-width: 1920px) { @content }
+
